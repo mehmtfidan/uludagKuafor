@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/kuaforler")
-
+@CrossOrigin
 public class AdminController {
     private AdminService adminService;
     //Kuafor ekleme
