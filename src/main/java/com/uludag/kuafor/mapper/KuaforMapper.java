@@ -3,7 +3,7 @@ package com.uludag.kuafor.mapper;
 import com.uludag.kuafor.dto.KuaforDto;
 import com.uludag.kuafor.entity.Kuafor;
 
-public class AdminMapper {
+public class KuaforMapper {
     public static KuaforDto mapToKuaforDto(Kuafor kuafor){
         return new KuaforDto(
                 kuafor.getId(), kuafor.getKullaniciAdi(), kuafor.getSifre(), kuafor.getAd(),kuafor.getSoyad(), kuafor.getBaslangicSaati(),kuafor.getBitisSaati()

@@ -8,11 +8,14 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@JsonIgnoreProperties({"id", "kullaniciAdi","sifre"})
 @Table(name = "Kuafor")
 public class Kuafor {
     @Id
