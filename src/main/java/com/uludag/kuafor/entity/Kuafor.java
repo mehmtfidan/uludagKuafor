@@ -20,8 +20,11 @@ public class Kuafor {
     private Long id;
     @Column(nullable = false, unique = true)
     private String kullaniciAdi;
+    @Column(nullable = false, unique = true)
     private String sifre;
+    @Column(nullable = false, unique = true)
     private String ad;
+    @Column(nullable = false, unique = true)
     private String soyad;
     private LocalTime baslangicSaati;
     private LocalTime bitisSaati;
