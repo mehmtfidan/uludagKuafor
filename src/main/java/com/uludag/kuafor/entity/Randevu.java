@@ -1,27 +1,28 @@
 package com.uludag.kuafor.entity;
 
+import java.time.LocalTime;
+import java.sql.Date;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalTime;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Kuafor")
-public class Kuafor {
+@Table(name = "Randevu")
+public class Randevu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String kullaniciAdi;
-    private String sifre;
-    private String ad;
-    private String soyad;
-    private LocalTime baslangicSaati;
-    private LocalTime bitisSaati;
+    private Long id;    
+    private Long musteriId;
+    private Long kuaforId;
+    private String islemler;
+    private String musteriNotu;
+    private LocalTime randevuSaati;
+    private Date randevuGunu;
 }
