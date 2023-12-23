@@ -18,6 +18,7 @@ public class Kuafor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, unique = true)
     private String kullaniciAdi;
     private String sifre;
     private String ad;
