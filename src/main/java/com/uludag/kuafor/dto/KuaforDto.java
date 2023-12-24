@@ -13,7 +13,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 public class KuaforDto {
     private Long id;
-    private String kullaniciAdi;
+    private String kullanici_adi;
     private String sifre;
     private String ad;
     private String soyad;

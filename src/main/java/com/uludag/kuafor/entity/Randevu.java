@@ -20,7 +20,9 @@ public class Randevu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
     private Long musteriId;
-    private Long kuaforId;
+    @ManyToOne
+    @JoinColumn(name = "kuaforId")
+    private Kuafor kuafor;
     private String islemler;
     private String musteriNotu;
     private LocalTime randevuSaati;

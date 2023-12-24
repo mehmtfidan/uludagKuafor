@@ -8,6 +8,8 @@ import lombok.Setter;
 import java.sql.Date;
 import java.time.LocalTime;
 
+import com.uludag.kuafor.entity.Kuafor;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,7 +19,7 @@ public class RandevuDto {
     
     private Long id;    
     private Long musteriId;
-    private Long kuaforId;
+    private Kuafor kuafor;
     private String islemler;
     private String musteriNotu;
     private LocalTime randevuSaati;

@@ -42,7 +42,7 @@ public class AdminImpl implements AdminService {
         kuafor.setAd(guncellenenKuafor.getAd());
         kuafor.setSoyad(guncellenenKuafor.getSoyad());
         kuafor.setSifre(guncellenenKuafor.getSifre());
-        kuafor.setKullaniciAdi(guncellenenKuafor.getKullaniciAdi());
+        kuafor.setKullanici_adi(guncellenenKuafor.getKullanici_adi());
         kuafor.setBaslangicSaati(guncellenenKuafor.getBaslangicSaati());
         kuafor.setBitisSaati(guncellenenKuafor.getBitisSaati());
 
