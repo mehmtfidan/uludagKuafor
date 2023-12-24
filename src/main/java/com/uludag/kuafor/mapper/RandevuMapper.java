@@ -8,7 +8,7 @@ public class RandevuMapper {
         return new RandevuDto(
             randevu.getId(), 
             randevu.getMusteriId(), 
-            randevu.getKuafor(), 
+            randevu.getKuafor_id(), 
             randevu.getIslemler(),
             randevu.getMusteriNotu(), 
             randevu.getRandevuSaati(),
@@ -19,7 +19,7 @@ public class RandevuMapper {
         return new Randevu(
             randevuDto.getId(), 
             randevuDto.getMusteriId(), 
-            randevuDto.getKuafor(), 
+            randevuDto.getKuafor_id(), 
             randevuDto.getIslemler(),
             randevuDto.getMusteriNotu(), 
             randevuDto.getRandevuSaati(),

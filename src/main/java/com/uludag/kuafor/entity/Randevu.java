@@ -21,8 +21,8 @@ public class Randevu {
     private Long id;    
     private Long musteriId;
     @ManyToOne
-    @JoinColumn(name = "kuaforId")
-    private Kuafor kuafor;
+    @JoinColumn(name = "kuafor_id")
+    private Kuafor kuafor_id;
     private String islemler;
     private String musteriNotu;
     private LocalTime randevuSaati;

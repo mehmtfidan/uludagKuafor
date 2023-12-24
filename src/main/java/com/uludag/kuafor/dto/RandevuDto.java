@@ -19,7 +19,7 @@ public class RandevuDto {
     
     private Long id;    
     private Long musteriId;
-    private Kuafor kuafor;
+    private Kuafor kuafor_id;
     private String islemler;
     private String musteriNotu;
     private LocalTime randevuSaati;
