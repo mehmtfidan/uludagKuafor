@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalTime;
+import java.util.List;
+
+import com.uludag.kuafor.entity.CalismaSaatleri;
 
 @Getter
 @Setter
@@ -19,4 +22,5 @@ public class KuaforDto {
     private String soyad;
     private LocalTime baslangicSaati;
     private LocalTime bitisSaati;
+    private List<CalismaSaatleri> calismaSaatleriList;
 }
