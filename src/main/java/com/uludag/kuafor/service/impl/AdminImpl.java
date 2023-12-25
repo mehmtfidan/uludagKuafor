@@ -52,7 +52,7 @@ public class AdminImpl implements AdminService {
 
     @Override
     public void kuaforSil(Long id) {
-        Kuafor kuafor = adminRepository.findById(id).orElseThrow(() -> new KaynakBulunamadiException("Bu id ile kayıtlı personel bulunamadı."));
+        adminRepository.findById(id).orElseThrow(() -> new KaynakBulunamadiException("Bu id ile kayıtlı personel bulunamadı."));
         adminRepository.deleteById(id);
     }
 
