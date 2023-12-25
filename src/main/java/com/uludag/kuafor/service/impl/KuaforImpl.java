@@ -8,6 +8,10 @@ import com.uludag.kuafor.repository.KuaforRepository;
 import com.uludag.kuafor.service.KuaforService;
 import lombok.AllArgsConstructor;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
@@ -26,7 +30,7 @@ public class KuaforImpl implements KuaforService {
 
     @Override
     @JsonIgnoreProperties({"id, kullanici_adi,sifre,ad,soyad"})
-    public KuaforDto saatGoruntule(Long kuaforId, KuaforDto guncelSaat) 
+    public KuaforDto saatGuncelle(Long kuaforId, KuaforDto guncelSaat) 
     {
         Kuafor kuaforSaat = kuaforRepository.findById(kuaforId).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı kuaför bulunmamaktadır."));
 
@@ -37,5 +41,18 @@ public class KuaforImpl implements KuaforService {
         Kuafor vtGuncellenmis = kuaforRepository.save(kuaforSaat);
         return KuaforMapper.mapToKuaforDto(vtGuncellenmis);
     }
+
+    @Override
+    public List<LocalTime> generateCalismaSaatleri(LocalTime baslamaSaati, LocalTime cikmaSaati) {
+        List<LocalTime> calismaSaatleri = new ArrayList<>();
+
+        while (baslamaSaati.isBefore(cikmaSaati)) {
+            calismaSaatleri.add(baslamaSaati);
+            baslamaSaati = baslamaSaati.plusHours(1);
+        }
+
+        return calismaSaatleri;
+    }
+
  }
 
