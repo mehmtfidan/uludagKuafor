@@ -23,6 +23,4 @@ public class RandevuImpl implements RandevuService {
          List<Randevu> randevular = randevuRepository.findAll();
         return randevular.stream().map(randevu -> RandevuMapper.mapRandevuDto(randevu)).collect(Collectors.toList());
     }
-
-   
 }

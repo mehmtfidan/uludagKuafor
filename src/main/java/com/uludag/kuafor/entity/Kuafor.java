@@ -24,7 +24,4 @@ public class Kuafor {
     private String ad;
     private String soyad;
     private LocalTime baslangicSaati;
-    private LocalTime bitisSaati;
-    @OneToMany(mappedBy = "kuafor", cascade = CascadeType.ALL)
-    private List<CalismaSaatleri> calismaSaatleriList;
-}
+    private LocalTime bitisSaati;}

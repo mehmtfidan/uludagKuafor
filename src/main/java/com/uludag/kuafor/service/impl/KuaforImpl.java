@@ -1,17 +1,12 @@
 package com.uludag.kuafor.service.impl;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.uludag.kuafor.dto.KuaforDto;
-import com.uludag.kuafor.entity.CalismaSaatleri;
 import com.uludag.kuafor.entity.Kuafor;
 import com.uludag.kuafor.exception.KaynakBulunamadiException;
 import com.uludag.kuafor.mapper.KuaforMapper;
 import com.uludag.kuafor.repository.KuaforRepository;
 import com.uludag.kuafor.service.KuaforService;
 import lombok.AllArgsConstructor;
-
-import java.time.DayOfWeek;
-import java.time.LocalTime;
-import java.util.List;
 
 import org.springframework.stereotype.Service;
 

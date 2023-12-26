@@ -1,6 +1,5 @@
 package com.uludag.kuafor.entity;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
