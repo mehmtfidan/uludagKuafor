@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
 @AllArgsConstructor
 @Service
 
@@ -34,8 +33,8 @@ public class KuaforImpl implements KuaforService {
     {
         Kuafor kuaforSaat = kuaforRepository.findById(kuaforId).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı kuaför bulunmamaktadır."));
 
-        kuaforSaat.setBaslangic_saati(guncelSaat.getBitis_saati());
-        kuaforSaat.setBitis_saati(guncelSaat.getBaslangic_saati());
+        kuaforSaat.setBaslangic_saati(guncelSaat.getBaslangic_saati());
+        kuaforSaat.setBitis_saati(guncelSaat.getBitis_saati());
        
 
         Kuafor vtGuncellenmis = kuaforRepository.save(kuaforSaat);

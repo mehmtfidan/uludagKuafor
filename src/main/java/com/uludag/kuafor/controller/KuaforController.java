@@ -31,16 +31,10 @@ public class KuaforController {
         return ResponseEntity.ok(kuaforDto);
         
     }
-        @PutMapping("{id}")
+    @PutMapping("{id}")
     public ResponseEntity<KuaforDto>saatGuncelle(@PathVariable("id") Long kuaforId, @RequestBody KuaforDto guncelSaat){
         KuaforDto kuaforDto = kuaforService.saatGuncelle(kuaforId,guncelSaat);
         return ResponseEntity.ok(kuaforDto);
-    }
-    @PutMapping("/mesai/{id}")
-    public List<LocalTime> updateCalismaSaatleri(@PathVariable("id") Long kuaforId,
-                                                 @RequestParam @DateTimeFormat(pattern = "HH:mm") LocalTime baslamaSaati,
-                                                 @RequestParam @DateTimeFormat(pattern = "HH:mm") LocalTime cikmaSaati) {
-        return null;
     }
     @GetMapping("/mesai/{id}")
     public List<LocalTime> calismaSaatleri(@PathVariable("id") Long kuaforId,
