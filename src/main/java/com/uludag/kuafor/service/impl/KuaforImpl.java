@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class KuaforImpl implements KuaforService {
 
     private final KuaforRepository kuaforRepository;
-
+    
     @Override
     public KuaforDto saatGoruntule(Long id) {
         Kuafor kuafor = kuaforRepository.findById(id)
@@ -34,14 +34,15 @@ public class KuaforImpl implements KuaforService {
     {
         Kuafor kuaforSaat = kuaforRepository.findById(kuaforId).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı kuaför bulunmamaktadır."));
 
-        kuaforSaat.setBaslangicSaati(guncelSaat.getBaslangicSaati());
-        kuaforSaat.setBitisSaati(guncelSaat.getBitisSaati());
+        kuaforSaat.setBaslangic_saati(guncelSaat.getBitis_saati());
+        kuaforSaat.setBitis_saati(guncelSaat.getBaslangic_saati());
        
 
         Kuafor vtGuncellenmis = kuaforRepository.save(kuaforSaat);
         return KuaforMapper.mapToKuaforDto(vtGuncellenmis);
     }
 
+    /* 
     @Override
     public List<LocalTime> generateCalismaSaatleri(LocalTime baslamaSaati, LocalTime cikmaSaati) {
         List<LocalTime> calismaSaatleri = new ArrayList<>();
@@ -53,6 +54,20 @@ public class KuaforImpl implements KuaforService {
 
         return calismaSaatleri;
     }
+    */
 
- }
+    @Override
+    public List<LocalTime> calismaSaatleri(Long kuaforId, LocalTime baslamaSaati, LocalTime bitisSaati) {
+        KuaforDto kuafor = saatGoruntule(kuaforId); 
+        baslamaSaati = kuafor.getBaslangic_saati();
+        bitisSaati = kuafor.getBitis_saati();
+        List<LocalTime> calismaSaatleri = new ArrayList<>();
+        while (baslamaSaati.isBefore(bitisSaati)) {
+            calismaSaatleri.add(baslamaSaati);
+            baslamaSaati = baslamaSaati.plusHours(1);
+        }
+        return calismaSaatleri;
+        }
+    }
+
 
