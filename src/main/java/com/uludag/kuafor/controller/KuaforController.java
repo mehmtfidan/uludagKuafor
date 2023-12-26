@@ -5,23 +5,20 @@ import com.uludag.kuafor.service.KuaforService;
 import lombok.AllArgsConstructor;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/kuafor")
-
+@CrossOrigin
 public class KuaforController {
     KuaforService kuaforService;
 
@@ -38,8 +35,7 @@ public class KuaforController {
     }
     @GetMapping("/mesai/{id}")
     public List<LocalTime> calismaSaatleri(@PathVariable("id") Long kuaforId,
-                                                 @RequestParam @DateTimeFormat(pattern = "HH:mm")LocalTime baslamaSaati,
-                                                 @RequestParam @DateTimeFormat(pattern = "HH:mm") LocalTime bitisSaati) {
+                                                 @RequestBody KuaforDto kuaforDto ) {
 
         // KuaforDto kuafor = kuaforService.saatGoruntule(kuaforId); 
         // baslamaSaati = kuafor.getBaslangicSaati();
@@ -50,7 +46,7 @@ public class KuaforController {
         //     baslamaSaati = baslamaSaati.plusHours(1);
         // }
         // return calismaSaatleri;
-        return this.kuaforService.calismaSaatleri(kuaforId, baslamaSaati, bitisSaati);
+        return this.kuaforService.calismaSaatleri(kuaforId, kuaforDto.getBaslangic_saati(), kuaforDto.getBitis_saati());
         }
     }
         /* 
