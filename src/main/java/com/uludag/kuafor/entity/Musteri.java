@@ -19,5 +19,5 @@ public class Musteri {
     private String ad;
     private String soyad;
     private String kullanici_adi;
-    private String Sifre;
+    private String sifre;
 }
