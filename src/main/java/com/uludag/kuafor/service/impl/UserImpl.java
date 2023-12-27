@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-@ServiceU
+@Service
 public class UserImpl implements UserService {
 
     private final UserRepository userRepository;
