@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.time.LocalTime;
 
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,6 +18,6 @@ public class KuaforDto {
     private String sifre;
     private String ad;
     private String soyad;
-    private LocalTime baslangicSaati;
-    private LocalTime bitisSaati;
+    private LocalTime baslangic_saati;
+    private LocalTime bitis_saati;
 }

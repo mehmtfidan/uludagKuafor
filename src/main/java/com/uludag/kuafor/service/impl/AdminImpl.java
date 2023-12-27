@@ -43,8 +43,8 @@ public class AdminImpl implements AdminService {
         kuafor.setSoyad(guncellenenKuafor.getSoyad());
         kuafor.setSifre(guncellenenKuafor.getSifre());
         kuafor.setKullanici_adi(guncellenenKuafor.getKullanici_adi());
-        kuafor.setBaslangicSaati(guncellenenKuafor.getBaslangicSaati());
-        kuafor.setBitisSaati(guncellenenKuafor.getBitisSaati());
+        kuafor.setBaslangic_saati(guncellenenKuafor.getBaslangic_saati());
+        kuafor.setBitis_saati(guncellenenKuafor.getBitis_saati());
 
         Kuafor vtGuncellenmis = adminRepository.save(kuafor);
         return AdminMapper.mapToKuaforDto(vtGuncellenmis);

@@ -1,5 +1,6 @@
 package com.uludag.kuafor.controller;
 import com.uludag.kuafor.dto.RandevuDto;
+import com.uludag.kuafor.entity.Randevu;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/randevular")
+@RequestMapping("/api/randevu")
 @CrossOrigin
 public class RandevuController {
     
@@ -23,4 +24,10 @@ public class RandevuController {
         List<RandevuDto> randevuDtoList = randevuService.randevuGoster();
         return ResponseEntity.ok(randevuDtoList);
     }
+    @PostMapping
+    public Randevu randevuKaydet(@RequestBody Randevu randevu) {
+        return randevuService.randevuKaydet(randevu);
+    }
+
+
 }

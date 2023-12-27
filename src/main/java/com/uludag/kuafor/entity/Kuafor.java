@@ -7,8 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalTime;
-import java.util.List;
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,5 +21,6 @@ public class Kuafor {
     private String sifre;
     private String ad;
     private String soyad;
-    private LocalTime baslangicSaati;
-    private LocalTime bitisSaati;}
+    private LocalTime baslangic_saati;
+    private LocalTime bitis_saati;
+}
