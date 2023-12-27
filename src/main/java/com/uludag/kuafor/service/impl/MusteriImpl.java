@@ -9,18 +9,21 @@ import com.uludag.kuafor.service.MusteriService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @AllArgsConstructor
 @Service
 public class MusteriImpl implements MusteriService
 {
     MusteriRepository musteriRepository;
 
-//    @Override
-//    public MusteriDto musteriEkle(MusteriDto musteriDto) {
-//        Musteri musteri = MusteriMapper.mapToMusteri(musteriDto);
-//        Musteri kaydedilmisMusteri = musteriRepository.save(musteri);
-//        return MusteriMapper.mapToMusteriDto(kaydedilmisMusteri);
-//    }
+    @Override
+    public MusteriDto musteriEkle(MusteriDto musteriDto) {
+        Musteri musteri = MusteriMapper.mapToMusteri(musteriDto);
+        Musteri kaydedilmisMusteri = musteriRepository.save(musteri);
+        return MusteriMapper.mapToMusteriDto(kaydedilmisMusteri);
+    }
 
     @Override
     public MusteriDto idIleGetir(Long Id) {
@@ -29,12 +32,12 @@ public class MusteriImpl implements MusteriService
         return MusteriMapper.mapToMusteriDto(musteri);
     }
 
-//    @Override
-//    public List<MusteriDto> musteriGoster() {
-//        List<Musteri> musteriler = musteriRepository.findAll();
-//        return musteriler.stream().map((musteri) -> MusteriMapper.mapToMusteriDto(musteri))
-//                .collect(Collectors.toList());
-//    }
+    @Override
+    public List<MusteriDto> musteriGoster() {
+        List<Musteri> musteriler = musteriRepository.findAll();
+        return musteriler.stream().map((musteri) -> MusteriMapper.mapToMusteriDto(musteri))
+                .collect(Collectors.toList());
+    }
 
     @Override
     public MusteriDto musteriGuncelle(Long Id, MusteriDto guncellenenMusteri) {

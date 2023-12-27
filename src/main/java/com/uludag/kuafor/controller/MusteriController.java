@@ -1,20 +1,16 @@
 package com.uludag.kuafor.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import com.uludag.kuafor.dto.MusteriDto;
 import com.uludag.kuafor.service.MusteriService;
 
 import lombok.AllArgsConstructor;
+
+import java.util.List;
 
 @AllArgsConstructor
 @RestController
@@ -24,19 +20,19 @@ import lombok.AllArgsConstructor;
 public class MusteriController {
     MusteriService musteriService;
 
-//    //Musteri ekleme -> üyelik işleminde kullanılabilir
-//    @PostMapping
-//    public ResponseEntity<MusteriDto> musteriEkle(@RequestBody MusteriDto musteriDto){
-//        MusteriDto kaydedilmisMusteri = musteriService.musteriEkle(musteriDto);
-//        return new ResponseEntity<>(kaydedilmisMusteri, HttpStatus.CREATED);
-//    }
+    //Musteri ekleme -> üyelik işleminde kullanılabilir
+    @PostMapping
+    public ResponseEntity<MusteriDto> musteriEkle(@RequestBody MusteriDto musteriDto){
+        MusteriDto kaydedilmisMusteri = musteriService.musteriEkle(musteriDto);
+        return new ResponseEntity<>(kaydedilmisMusteri, HttpStatus.CREATED);
+    }
 
-//    //Musterilerin hepsini getir
-//    @GetMapping
-//    public ResponseEntity<List<MusteriDto>>musteriGoster() {
-//        List<MusteriDto> musteriDtoList = musteriService.musteriGoster();
-//        return ResponseEntity.ok(musteriDtoList);
-//    }
+    //Musterilerin hepsini getir
+    @GetMapping
+    public ResponseEntity<List<MusteriDto>>musteriGoster() {
+        List<MusteriDto> musteriDtoList = musteriService.musteriGoster();
+        return ResponseEntity.ok(musteriDtoList);
+    }
 
 
     //Musteri getir
