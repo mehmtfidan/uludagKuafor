@@ -4,6 +4,9 @@ import com.uludag.kuafor.entity.Randevu;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface RandevuRepository extends JpaRepository<Randevu, Long> {
+import org.springframework.data.repository.CrudRepository;
+
+
+public interface RandevuRepository extends CrudRepository<Randevu, Long>  {
 
 }
