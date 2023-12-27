@@ -18,8 +18,10 @@ import lombok.NoArgsConstructor;
 public class Randevu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;    
-    private Long musteriId;
+    private Long id;
+    @ManyToOne
+    @JoinColumn(name = "musteri_id")
+    private Musteri musteriId;
     @ManyToOne
     @JoinColumn(name = "kuafor_id")
     private Kuafor kuafor_id;

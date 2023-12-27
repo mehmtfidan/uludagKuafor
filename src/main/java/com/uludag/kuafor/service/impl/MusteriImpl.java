@@ -1,10 +1,14 @@
 package com.uludag.kuafor.service.impl;
 
 import com.uludag.kuafor.dto.MusteriDto;
+import com.uludag.kuafor.dto.RandevuDto;
 import com.uludag.kuafor.entity.Musteri;
+import com.uludag.kuafor.entity.Randevu;
 import com.uludag.kuafor.exception.KaynakBulunamadiException;
 import com.uludag.kuafor.mapper.MusteriMapper;
+import com.uludag.kuafor.mapper.RandevuMapper;
 import com.uludag.kuafor.repository.MusteriRepository;
+import com.uludag.kuafor.repository.RandevuRepository;
 import com.uludag.kuafor.service.MusteriService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -58,5 +62,17 @@ public class MusteriImpl implements MusteriService
         musteriRepository.findById(Id)
                 .orElseThrow(() -> new KaynakBulunamadiException("Bu id ile kayitli bir musteri bulunamadi." ));
         musteriRepository.deleteById(Id);
+    }
+
+    RandevuRepository randevuRepository;
+    @Override
+    public Randevu randevuKaydet(Randevu randevu) {
+        return randevuRepository.save(randevu);
+    }
+
+    @Override
+    public RandevuDto idIleRandevuGoster(Long id) {
+        Randevu randevu = randevuRepository.findById(id).orElseThrow(()-> new KaynakBulunamadiException("Kayıtlı randevu bulunamadı."));
+        return RandevuMapper.mapRandevuDto(randevu);
     }
 }

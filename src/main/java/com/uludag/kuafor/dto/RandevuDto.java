@@ -1,5 +1,6 @@
 package com.uludag.kuafor.dto;
 
+import com.uludag.kuafor.entity.Musteri;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ import com.uludag.kuafor.entity.Kuafor;
 public class RandevuDto {
     
     private Long id;    
-    private Long musteriId;
+    private Musteri musteriId;
     private Kuafor kuafor_id;
     private String islemler;
     private String musteriNotu;
