@@ -40,4 +40,10 @@ public class RandevuImpl implements RandevuService {
         Randevu randevu = randevuRepository.findById(id).orElseThrow(()-> new KaynakBulunamadiException("Kayıtlı randevu bulunamadı."));
         return RandevuMapper.mapRandevuDto(randevu);
     }
+
+    @Override
+    public void randevuSil(Long id) {
+        randevuRepository.findById(id).orElseThrow(() -> new KaynakBulunamadiException("Bu id ile kayıtlı personel bulunamadı."));
+        randevuRepository.deleteById(id);
+    }
 }

@@ -10,4 +10,5 @@ public interface RandevuService {
         Randevu randevuKaydet(Randevu kaydedilenRandevu);
 
         RandevuDto idIleRandevuGoster(Long id);
+        void randevuSil(Long id);
 }

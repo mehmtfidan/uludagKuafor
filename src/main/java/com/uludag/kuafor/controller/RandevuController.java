@@ -34,4 +34,9 @@ public class RandevuController {
         RandevuDto randevuDto = randevuService.idIleRandevuGoster(id);
         return ResponseEntity.ok(randevuDto);
     }
+    @DeleteMapping("{id}")
+    public ResponseEntity<String>randevuSil(@PathVariable("id") Long Id){
+        randevuService.randevuSil(Id);
+        return ResponseEntity.ok("Randevu başarıyla silindi.");
+    }
 }
