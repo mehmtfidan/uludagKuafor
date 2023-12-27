@@ -34,9 +34,4 @@ public class RandevuController {
         RandevuDto randevuDto = randevuService.idIleRandevuGoster(id);
         return ResponseEntity.ok(randevuDto);
     }
-    @PutMapping("{id}")
-    public ResponseEntity<RandevuDto>randevuGuncelle(@PathVariable("id") Long id, @RequestBody Randevu guncelRandevu){
-        RandevuDto randevuDto = randevuService.randevuGuncelle(id, guncelRandevu);
-        return ResponseEntity.ok(randevuDto);
-    }
 }
