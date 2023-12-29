@@ -8,7 +8,7 @@ import java.util.List;
 public interface RandevuService {
         List<RandevuDto> randevuGoster();
         Randevu randevuKaydet(Randevu kaydedilenRandevu);
-
         RandevuDto idIleRandevuGoster(Long id);
+        RandevuDto randevuGuncelle(Long id , RandevuDto guncelRandevu);
         void randevuSil(Long id);
 }

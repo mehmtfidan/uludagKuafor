@@ -4,9 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.uludag.kuafor.entity.Kuafor;
-import com.uludag.kuafor.entity.Musteri;
 import com.uludag.kuafor.exception.KaynakBulunamadiException;
-import com.uludag.kuafor.mapper.MusteriMapper;
 import com.uludag.kuafor.mapper.RandevuMapper;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +37,21 @@ public class RandevuImpl implements RandevuService {
     public RandevuDto idIleRandevuGoster(Long id) {
         Randevu randevu = randevuRepository.findById(id).orElseThrow(()-> new KaynakBulunamadiException("Kayıtlı randevu bulunamadı."));
         return RandevuMapper.mapRandevuDto(randevu);
+    }
+
+    @Override
+    public RandevuDto randevuGuncelle(Long id, RandevuDto guncelRandevu) {
+       Randevu randevu  = randevuRepository.findById(id).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı kuaför bulunmamaktadır."));
+
+//       randevu.setKuaforHizmetId(randevu.getKuaforHizmetId());
+//       randevu.setMusteriId(randevu.getMusteriId());
+//       randevu.setKuafor_id(randevu.getKuafor_id());
+       randevu.setMusteriNotu(randevu.getMusteriNotu());
+       randevu.setRandevuSaati(randevu.getRandevuSaati());
+       randevu.setRandevuGunu(randevu.getRandevuGunu());
+
+       Randevu vtGuncellenmis = randevuRepository.save(randevu);
+       return RandevuMapper.mapRandevuDto(vtGuncellenmis);
     }
 
     @Override

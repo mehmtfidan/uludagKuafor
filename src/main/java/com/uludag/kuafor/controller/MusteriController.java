@@ -1,5 +1,7 @@
 package com.uludag.kuafor.controller;
 
+import com.uludag.kuafor.entity.Randevu;
+import com.uludag.kuafor.service.RandevuService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -54,5 +56,12 @@ public class MusteriController {
     public ResponseEntity<String>MusteriSil(@PathVariable("id") Long Id){
         musteriService.musteriSil(Id);
         return ResponseEntity.ok("Hesap Silindi!");
+    }
+
+    //Randevu Deneme
+    RandevuService randevuService;
+    @PostMapping("{id}/musteriRandevu")
+    public Randevu randevuKaydet(@RequestBody Randevu randevu) {
+        return randevuService.randevuKaydet(randevu);
     }
 }
