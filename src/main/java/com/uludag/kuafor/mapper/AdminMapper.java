@@ -6,12 +6,12 @@ import com.uludag.kuafor.entity.Kuafor;
 public class AdminMapper {
     public static KuaforDto mapToKuaforDto(Kuafor kuafor){
         return new KuaforDto(
-                kuafor.getId(), kuafor.getKullanici_adi(), kuafor.getSifre(), kuafor.getAd(),kuafor.getSoyad(), kuafor.getBaslangic_saati(),kuafor.getBitis_saati()
+                kuafor.getId(), kuafor.getKullanici_adi(), kuafor.getSifre(), kuafor.getAd(),kuafor.getSoyad(), kuafor.getHizmetKuafor(), kuafor.getBaslangic_saati(),kuafor.getBitis_saati()
         );
     }
     public static Kuafor mapToKuafor(KuaforDto kuaforDto){
         return new Kuafor(
-                kuaforDto.getId(), kuaforDto.getKullanici_adi(), kuaforDto.getSifre(), kuaforDto.getAd(),kuaforDto.getSoyad(), kuaforDto.getBaslangic_saati(),kuaforDto.getBitis_saati()
+                kuaforDto.getId(), kuaforDto.getKullanici_adi(), kuaforDto.getSifre(), kuaforDto.getAd(),kuaforDto.getSoyad(), kuaforDto.getHizmetKuafor(), kuaforDto.getBaslangic_saati(),kuaforDto.getBitis_saati()
         );
     }
 }

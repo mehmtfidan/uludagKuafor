@@ -59,4 +59,6 @@ public class RandevuImpl implements RandevuService {
         randevuRepository.findById(id).orElseThrow(() -> new KaynakBulunamadiException("Bu id ile kayıtlı personel bulunamadı."));
         randevuRepository.deleteById(id);
     }
+
+
 }

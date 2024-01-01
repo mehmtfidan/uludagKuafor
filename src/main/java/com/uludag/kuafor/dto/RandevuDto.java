@@ -1,5 +1,6 @@
 package com.uludag.kuafor.dto;
 
+import com.uludag.kuafor.entity.Hizmet;
 import com.uludag.kuafor.entity.Musteri;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +22,7 @@ public class RandevuDto {
     private Long id;    
     private Musteri musteriId;
     private Kuafor kuafor_id;
-    private String islemler;
+    private Hizmet hizmet;
     private String musteriNotu;
     private LocalTime randevuSaati;
     private Date randevuGunu;

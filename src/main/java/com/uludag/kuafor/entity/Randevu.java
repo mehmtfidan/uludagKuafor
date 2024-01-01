@@ -25,7 +25,9 @@ public class Randevu {
     @ManyToOne
     @JoinColumn(name = "kuafor_id")
     private Kuafor kuafor_id;
-    private String islemler;
+    @ManyToOne
+    @JoinColumn(name = "hizmet_id")
+    private Hizmet hizmet;
     private String musteriNotu;
     private LocalTime randevuSaati;
     private Date randevuGunu;

@@ -9,7 +9,7 @@ public class RandevuMapper {
             randevu.getId(), 
             randevu.getMusteriId(), 
             randevu.getKuafor_id(), 
-            randevu.getIslemler(),
+            randevu.getHizmet(),
             randevu.getMusteriNotu(), 
             randevu.getRandevuSaati(),
             randevu.getRandevuGunu()
@@ -20,7 +20,7 @@ public class RandevuMapper {
             randevuDto.getId(), 
             randevuDto.getMusteriId(), 
             randevuDto.getKuafor_id(), 
-            randevuDto.getIslemler(),
+            randevuDto.getHizmet(),
             randevuDto.getMusteriNotu(), 
             randevuDto.getRandevuSaati(),
             randevuDto.getRandevuGunu()
