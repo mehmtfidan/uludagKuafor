@@ -36,28 +36,9 @@ public class KuaforController {
     @GetMapping("/mesai/{id}")
     public List<LocalTime> calismaSaatleri(@PathVariable("id") Long kuaforId,
                                                  @RequestBody KuaforDto kuaforDto ) {
-
-        // KuaforDto kuafor = kuaforService.saatGoruntule(kuaforId); 
-        // baslamaSaati = kuafor.getBaslangicSaati();
-        // bitisSaati = kuafor.getBitisSaati();
-        // List<LocalTime> calismaSaatleri = new ArrayList<>();
-        // while (baslamaSaati.isBefore(bitisSaati)) {
-        //     calismaSaatleri.add(baslamaSaati);
-        //     baslamaSaati = baslamaSaati.plusHours(1);
-        // }
-        // return calismaSaatleri;
         return this.kuaforService.calismaSaatleri(kuaforId, kuaforDto.getBaslangic_saati(), kuaforDto.getBitis_saati());
         }
     }
-        /* 
-        while (baslamaSaati.isBefore(bitisSaati)) {
-            calismaSaatleri.add(baslamaSaati);
-            baslamaSaati = baslamaSaati.plusHours(1);
-        }
-        */
-
-    ///////
-//servise aldım
 
 
         

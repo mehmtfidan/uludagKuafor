@@ -1,5 +1,7 @@
 package com.uludag.kuafor.controller;
 
+import com.uludag.kuafor.dto.RandevuDto;
+import com.uludag.kuafor.entity.Musteri;
 import com.uludag.kuafor.entity.Randevu;
 import com.uludag.kuafor.service.RandevuService;
 import org.springframework.http.HttpStatus;
@@ -60,8 +62,19 @@ public class MusteriController {
 
     //Randevu Deneme
     RandevuService randevuService;
-    @PostMapping("{id}/musteriRandevu")
+    @PostMapping("{id}/musteriRandevuKaydet")
     public Randevu randevuKaydet(@RequestBody Randevu randevu) {
         return randevuService.randevuKaydet(randevu);
+    }
+
+    @GetMapping("{id}/musteriRandevuGoster")
+    public ResponseEntity<List<RandevuDto>> randevuGoster(){
+        List<RandevuDto> randevuDtoList = randevuService.randevuGoster();
+        return ResponseEntity.ok(randevuDtoList);
+    }
+    @PutMapping("{id}/musteriRandevuGuncelle")
+    public ResponseEntity<RandevuDto> randevuGuncelle(@RequestBody RandevuDto musteriRandevuGuncel){
+        RandevuDto randevuDto = randevuService.randevuGuncelle(musteriRandevuGuncel);
+        return ResponseEntity.ok(randevuDto);
     }
 }

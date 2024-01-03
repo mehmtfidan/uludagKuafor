@@ -1,6 +1,7 @@
 package com.uludag.kuafor.service.impl;
 import com.uludag.kuafor.dto.KuaforDto;
 import com.uludag.kuafor.entity.Kuafor;
+import com.uludag.kuafor.entity.Randevu;
 import com.uludag.kuafor.exception.KaynakBulunamadiException;
 import com.uludag.kuafor.mapper.AdminMapper;
 import com.uludag.kuafor.repository.AdminRepository;

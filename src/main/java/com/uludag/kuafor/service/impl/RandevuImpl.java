@@ -4,8 +4,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.uludag.kuafor.entity.Kuafor;
+import com.uludag.kuafor.entity.Musteri;
 import com.uludag.kuafor.exception.KaynakBulunamadiException;
 import com.uludag.kuafor.mapper.RandevuMapper;
+import com.uludag.kuafor.repository.KuaforRepository;
+import com.uludag.kuafor.repository.MusteriRepository;
 import org.springframework.stereotype.Service;
 
 import com.uludag.kuafor.dto.RandevuDto;
@@ -20,6 +23,8 @@ import lombok.AllArgsConstructor;
 public class RandevuImpl implements RandevuService {
 
     RandevuRepository randevuRepository;
+    MusteriRepository musteriRepository;
+    KuaforRepository kuaforRepository;
 
     @Override
     public List<RandevuDto> randevuGoster() {
@@ -35,23 +40,24 @@ public class RandevuImpl implements RandevuService {
 
     @Override
     public RandevuDto idIleRandevuGoster(Long id) {
-        Randevu randevu = randevuRepository.findById(id).orElseThrow(()-> new KaynakBulunamadiException("Kayıtlı randevu bulunamadı."));
+        Randevu randevu = randevuRepository.findById(id).orElseThrow(() -> new KaynakBulunamadiException("Kayıtlı randevu bulunamadı."));
         return RandevuMapper.mapRandevuDto(randevu);
     }
 
     @Override
-    public RandevuDto randevuGuncelle(Long id, RandevuDto guncelRandevu) {
-       Randevu randevu  = randevuRepository.findById(id).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı kuaför bulunmamaktadır."));
+    public RandevuDto randevuGuncelle(RandevuDto guncelRandevu) {
+        Randevu randevu = randevuRepository.findById(guncelRandevu.getId()).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı kuaför bulunmamaktadır."));
+        Musteri musteri = musteriRepository.findById(guncelRandevu.getMusteriId()).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı kuaför bulunmamaktadır."));
+        Kuafor kuafor = kuaforRepository.findById(guncelRandevu.getKuaforId()).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı kuaför bulunmamaktadır."));
 
-//       randevu.setKuaforHizmetId(randevu.getKuaforHizmetId());
-//       randevu.setMusteriId(randevu.getMusteriId());
-//       randevu.setKuafor_id(randevu.getKuafor_id());
-       randevu.setMusteriNotu(randevu.getMusteriNotu());
-       randevu.setRandevuSaati(randevu.getRandevuSaati());
-       randevu.setRandevuGunu(randevu.getRandevuGunu());
+        randevu.setMusteri(musteri);
+        randevu.setKuafor(kuafor);
+        randevu.setMusteriNotu(randevu.getMusteriNotu());
+        randevu.setRandevuSaati(randevu.getRandevuSaati());
+        randevu.setRandevuGunu(randevu.getRandevuGunu());
 
-       Randevu vtGuncellenmis = randevuRepository.save(randevu);
-       return RandevuMapper.mapRandevuDto(vtGuncellenmis);
+        Randevu vtGuncellenmis = randevuRepository.save(randevu);
+        return RandevuMapper.mapRandevuDto(vtGuncellenmis);
     }
 
     @Override

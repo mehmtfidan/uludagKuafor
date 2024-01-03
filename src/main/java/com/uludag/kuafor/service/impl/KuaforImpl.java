@@ -35,7 +35,7 @@ public class KuaforImpl implements KuaforService {
 
         kuaforSaat.setBaslangic_saati(guncelSaat.getBaslangic_saati());
         kuaforSaat.setBitis_saati(guncelSaat.getBitis_saati());
-       
+//        kuaforSaat.setRandevu(guncelSaat.getRandevu());
 
         Kuafor vtGuncellenmis = kuaforRepository.save(kuaforSaat);
         return KuaforMapper.mapToKuaforDto(vtGuncellenmis);

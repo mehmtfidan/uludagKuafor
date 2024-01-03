@@ -1,5 +1,6 @@
 package com.uludag.kuafor.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,16 +19,17 @@ import java.util.List;
 public class Kuafor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
+    @JsonIgnore
     private String kullanici_adi;
+    @JsonIgnore
     private String sifre;
     private String ad;
     private String soyad;
-    @ManyToOne
-    @JoinColumn(name = "hizmet_kuafor_id")
-    private HizmetKuafor hizmetKuafor;
-    @OneToMany(mappedBy = "kuafor", cascade = CascadeType.ALL)
-    private List<Randevu> randevular;
     private LocalTime baslangic_saati;
     private LocalTime bitis_saati;
-}
+    @ManyToOne
+    @JoinColumn(name = "randevu_id")
+    private Randevu randevu;
+    }

@@ -52,6 +52,7 @@ public class MusteriImpl implements MusteriService
         musteri.setSoyad(guncellenenMusteri.getSoyad());
         musteri.setKullanici_adi(guncellenenMusteri.getKullanici_adi());
         musteri.setSifre(guncellenenMusteri.getSifre());
+        musteri.setRandevu(musteri.getRandevu());
 
         Musteri veritabanindaGuncellenmmisMusteri = musteriRepository.save(musteri);
         return MusteriMapper.mapToMusteriDto(veritabanindaGuncellenmmisMusteri);
@@ -64,15 +65,16 @@ public class MusteriImpl implements MusteriService
         musteriRepository.deleteById(Id);
     }
 
-    RandevuRepository randevuRepository;
-    @Override
-    public Randevu randevuKaydet(Randevu randevu) {
-        return randevuRepository.save(randevu);
-    }
+//    @Override
+//    public Musteri randevuKaydet(Musteri musteri) {
+//        return musteriRepository.save(musteri);
+//    }
 
-    @Override
-    public RandevuDto idIleRandevuGoster(Long id) {
-        Randevu randevu = randevuRepository.findById(id).orElseThrow(()-> new KaynakBulunamadiException("Kayıtlı randevu bulunamadı."));
-        return RandevuMapper.mapRandevuDto(randevu);
-    }
+
+//
+//    @Override
+//    public RandevuDto idIleRandevuGoster(Long id) {
+//        Randevu randevu = randevuRepository.findById(id).orElseThrow(()-> new KaynakBulunamadiException("Kayıtlı randevu bulunamadı."));
+//        return RandevuMapper.mapRandevuDto(randevu);
+//    }
 }

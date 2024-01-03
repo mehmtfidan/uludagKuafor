@@ -40,9 +40,9 @@ public class RandevuController {
         randevuService.randevuSil(Id);
         return ResponseEntity.ok("Randevu başarıyla silindi.");
     }
-    @PutMapping("{id}")
-    public ResponseEntity<RandevuDto>randevuGuncelle(@PathVariable("id") Long id, @RequestBody RandevuDto guncelRandevu){
-        RandevuDto randevuDto = randevuService.randevuGuncelle(id,guncelRandevu);
+    @PutMapping
+    public ResponseEntity<RandevuDto>randevuGuncelle(@RequestBody RandevuDto guncelRandevu){
+        RandevuDto randevuDto = randevuService.randevuGuncelle(guncelRandevu);
         return ResponseEntity.ok(randevuDto);
     }
 }

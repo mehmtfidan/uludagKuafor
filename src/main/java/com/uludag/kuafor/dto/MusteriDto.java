@@ -2,10 +2,13 @@ package com.uludag.kuafor.dto;
 
 
 
+import com.uludag.kuafor.entity.Randevu;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 
 @Getter
@@ -21,5 +24,5 @@ public class MusteriDto {
     private String soyad;
     private String kullanici_adi;
     private String sifre;
-
+    private Randevu randevu;
 }

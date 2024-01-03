@@ -1,6 +1,7 @@
 package com.uludag.kuafor.dto;
 
-import com.uludag.kuafor.entity.Hizmet;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.uludag.kuafor.entity.Musteri;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,10 +20,13 @@ import com.uludag.kuafor.entity.Kuafor;
 
 public class RandevuDto {
     
-    private Long id;    
-    private Musteri musteriId;
-    private Kuafor kuafor_id;
-    private Hizmet hizmet;
+    private Long id;
+    @JsonIgnore
+    private Musteri musteri;
+    @JsonIgnore
+    private Kuafor kuafor;
+    private Long musteriId;
+    private Long kuaforId;
     private String musteriNotu;
     private LocalTime randevuSaati;
     private Date randevuGunu;

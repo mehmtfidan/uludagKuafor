@@ -7,10 +7,11 @@ public class RandevuMapper {
     public static RandevuDto mapRandevuDto(Randevu randevu){
         return new RandevuDto(
             randevu.getId(), 
-            randevu.getMusteriId(), 
-            randevu.getKuafor_id(), 
-            randevu.getHizmet(),
-            randevu.getMusteriNotu(), 
+            randevu.getMusteri(),
+            randevu.getKuafor(),
+            randevu.getMusteri().getId(),
+            randevu.getKuafor().getId(),
+            randevu.getMusteriNotu(),
             randevu.getRandevuSaati(),
             randevu.getRandevuGunu()
         );
@@ -18,12 +19,12 @@ public class RandevuMapper {
     public static Randevu maptoRandevu(RandevuDto randevuDto){
         return new Randevu(
             randevuDto.getId(), 
-            randevuDto.getMusteriId(), 
-            randevuDto.getKuafor_id(), 
-            randevuDto.getHizmet(),
-            randevuDto.getMusteriNotu(), 
+            randevuDto.getMusteri(),
+            randevuDto.getKuafor(),
+            randevuDto.getMusteriNotu(),
             randevuDto.getRandevuSaati(),
             randevuDto.getRandevuGunu()
         );
     }
+
 }
