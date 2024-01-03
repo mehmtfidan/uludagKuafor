@@ -12,6 +12,7 @@ import com.uludag.kuafor.repository.RandevuRepository;
 import com.uludag.kuafor.service.MusteriService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,7 +45,7 @@ public class MusteriImpl implements MusteriService
     }
 
     @Override
-    public MusteriDto musteriGuncelle(MusteriDto guncellenenMusteri) {
+    public MusteriDto musteriGuncelle(Long id,MusteriDto guncellenenMusteri) {
         Musteri musteri = musteriRepository.findById(guncellenenMusteri.getId())
                 .orElseThrow(()->new KaynakBulunamadiException("Bu id ile kayitli bir musteri bulunamadi. Id: " ));
 
@@ -52,7 +53,6 @@ public class MusteriImpl implements MusteriService
         musteri.setSoyad(guncellenenMusteri.getSoyad());
         musteri.setKullanici_adi(guncellenenMusteri.getKullanici_adi());
         musteri.setSifre(guncellenenMusteri.getSifre());
-        musteri.setRandevu(musteri.getRandevu());
 
         Musteri veritabanindaGuncellenmmisMusteri = musteriRepository.save(musteri);
         return MusteriMapper.mapToMusteriDto(veritabanindaGuncellenmmisMusteri);

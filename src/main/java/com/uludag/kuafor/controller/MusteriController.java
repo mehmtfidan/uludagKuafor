@@ -47,9 +47,9 @@ public class MusteriController {
     }
 
     //Musteri güncelleme
-    @PutMapping
-    public ResponseEntity<MusteriDto>musteriGuncelle(@RequestBody MusteriDto guncelMusteri){
-        MusteriDto musteriDto = musteriService.musteriGuncelle(guncelMusteri);
+    @PutMapping("{id}")
+    public ResponseEntity<MusteriDto>musteriGuncelle(@PathVariable Long id,@RequestBody MusteriDto guncelMusteri){
+        MusteriDto musteriDto = musteriService.musteriGuncelle(id,guncelMusteri);
         return ResponseEntity.ok(musteriDto);
     }
 

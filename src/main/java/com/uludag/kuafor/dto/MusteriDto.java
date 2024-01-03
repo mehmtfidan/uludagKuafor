@@ -25,6 +25,5 @@ public class MusteriDto {
     private String kullanici_adi;
     private String sifre;
     private Randevu randevu;
-    private Long randevuId;
     private Rol rol;
 }
