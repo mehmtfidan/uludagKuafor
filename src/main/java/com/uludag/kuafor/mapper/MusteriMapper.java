@@ -10,14 +10,14 @@ import java.util.List;
 public class MusteriMapper {
     public static MusteriDto mapToMusteriDto(Musteri musteri) {
         return new MusteriDto(
-                musteri.getId(), musteri.getAd(), musteri.getSoyad(), musteri.getKullanici_adi(), musteri.getSifre(), musteri.getRandevu()
+                musteri.getId(), musteri.getAd(), musteri.getSoyad(), musteri.getKullanici_adi(), musteri.getSifre(), musteri.getRandevu(), musteri.getRandevu().getId() , musteri.getRol()
         );
 
     }
 
     public static Musteri mapToMusteri(MusteriDto musteriDto) {
         return new Musteri(
-                musteriDto.getId(), musteriDto.getAd(), musteriDto.getSoyad(), musteriDto.getKullanici_adi(), musteriDto.getSifre(), musteriDto.getRandevu()
+                musteriDto.getId(), musteriDto.getAd(), musteriDto.getSoyad(), musteriDto.getKullanici_adi(), musteriDto.getSifre(), musteriDto.getRandevu(),musteriDto.getRol()
         );
 
     }

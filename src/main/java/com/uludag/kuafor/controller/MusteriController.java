@@ -47,9 +47,9 @@ public class MusteriController {
     }
 
     //Musteri güncelleme
-    @PutMapping("{id}")
-    public ResponseEntity<MusteriDto>musteriGuncelle(@PathVariable("id") Long Id, @RequestBody MusteriDto guncelMusteri){
-        MusteriDto musteriDto = musteriService.musteriGuncelle(Id,guncelMusteri);
+    @PutMapping
+    public ResponseEntity<MusteriDto>musteriGuncelle(@RequestBody MusteriDto guncelMusteri){
+        MusteriDto musteriDto = musteriService.musteriGuncelle(guncelMusteri);
         return ResponseEntity.ok(musteriDto);
     }
 
@@ -58,23 +58,5 @@ public class MusteriController {
     public ResponseEntity<String>MusteriSil(@PathVariable("id") Long Id){
         musteriService.musteriSil(Id);
         return ResponseEntity.ok("Hesap Silindi!");
-    }
-
-    //Randevu Deneme
-    RandevuService randevuService;
-    @PostMapping("{id}/musteriRandevuKaydet")
-    public Randevu randevuKaydet(@RequestBody Randevu randevu) {
-        return randevuService.randevuKaydet(randevu);
-    }
-
-    @GetMapping("{id}/musteriRandevuGoster")
-    public ResponseEntity<List<RandevuDto>> randevuGoster(){
-        List<RandevuDto> randevuDtoList = randevuService.randevuGoster();
-        return ResponseEntity.ok(randevuDtoList);
-    }
-    @PutMapping("{id}/musteriRandevuGuncelle")
-    public ResponseEntity<RandevuDto> randevuGuncelle(@RequestBody RandevuDto musteriRandevuGuncel){
-        RandevuDto randevuDto = randevuService.randevuGuncelle(musteriRandevuGuncel);
-        return ResponseEntity.ok(randevuDto);
     }
 }

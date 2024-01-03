@@ -20,7 +20,6 @@ import lombok.NoArgsConstructor;
 public class Randevu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     private Long id;
     @ManyToOne
     @JoinColumn(name = "musteri_id")

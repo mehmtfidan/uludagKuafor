@@ -18,4 +18,7 @@ public class Admin {
     private Long id;
     private String kullanici_adi;
     private String sifre;
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rol;
 }

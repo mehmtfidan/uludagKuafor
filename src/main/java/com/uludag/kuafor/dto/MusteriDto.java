@@ -2,7 +2,9 @@ package com.uludag.kuafor.dto;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uludag.kuafor.entity.Randevu;
+import com.uludag.kuafor.entity.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,8 +18,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 
-
-
 public class MusteriDto {
     private Long id;
     private String ad;
@@ -25,4 +25,6 @@ public class MusteriDto {
     private String kullanici_adi;
     private String sifre;
     private Randevu randevu;
+    private Long randevuId;
+    private Rol rol;
 }

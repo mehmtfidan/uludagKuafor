@@ -44,8 +44,8 @@ public class MusteriImpl implements MusteriService
     }
 
     @Override
-    public MusteriDto musteriGuncelle(Long Id, MusteriDto guncellenenMusteri) {
-        Musteri musteri = musteriRepository.findById(Id)
+    public MusteriDto musteriGuncelle(MusteriDto guncellenenMusteri) {
+        Musteri musteri = musteriRepository.findById(guncellenenMusteri.getId())
                 .orElseThrow(()->new KaynakBulunamadiException("Bu id ile kayitli bir musteri bulunamadi. Id: " ));
 
         musteri.setAd(guncellenenMusteri.getAd());

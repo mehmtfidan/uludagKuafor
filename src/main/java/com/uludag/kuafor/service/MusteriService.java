@@ -9,7 +9,7 @@ public interface MusteriService {
    MusteriDto musteriEkle(MusteriDto musteriDto);
     MusteriDto idIleGetir(Long Id);
    List<MusteriDto> musteriGoster();
-    MusteriDto musteriGuncelle(Long Id, MusteriDto guncellenenMusteri);
+    MusteriDto musteriGuncelle(MusteriDto guncellenenMusteri);
     void musteriSil(Long Id);
 
 //    Musteri randevuKaydet(Musteri musteri);

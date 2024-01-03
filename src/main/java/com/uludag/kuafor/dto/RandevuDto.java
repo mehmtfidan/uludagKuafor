@@ -21,9 +21,7 @@ import com.uludag.kuafor.entity.Kuafor;
 public class RandevuDto {
     
     private Long id;
-    @JsonIgnore
     private Musteri musteri;
-    @JsonIgnore
     private Kuafor kuafor;
     private Long musteriId;
     private Long kuaforId;

@@ -32,4 +32,9 @@ public class Kuafor {
     @ManyToOne
     @JoinColumn(name = "randevu_id")
     private Randevu randevu;
-    }
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rol;
+
+}
+

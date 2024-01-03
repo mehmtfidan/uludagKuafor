@@ -12,23 +12,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Musteri")
-public class Musteri {
+@Table(name = "Rol")
+public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long id;
-    private String ad;
-    private String soyad;
     @JsonIgnore
-    private String kullanici_adi;
-    @JsonIgnore
-    private String sifre;
-    @ManyToOne
-    @JoinColumn(name = "randevu_id")
-    private Randevu randevu;
-    @ManyToOne
-    @JoinColumn(name = "rol_id")
-    private Rol rol;
-
+    private String rol;
 }

@@ -9,12 +9,12 @@ import java.util.List;
 public class KuaforMapper {
     public static KuaforDto mapToKuaforDto(Kuafor kuafor){
         return new KuaforDto(
-                kuafor.getId(), kuafor.getKullanici_adi(), kuafor.getSifre(), kuafor.getAd(),kuafor.getSoyad(), kuafor.getBaslangic_saati(),kuafor.getBitis_saati(), (Randevu) kuafor.getRandevu()
+                kuafor.getId(), kuafor.getKullanici_adi(), kuafor.getSifre(), kuafor.getAd(),kuafor.getSoyad(), kuafor.getBaslangic_saati(),kuafor.getBitis_saati(), (Randevu) kuafor.getRandevu() , kuafor.getRol()
         );
     }
     public static Kuafor mapToKuafor(KuaforDto kuaforDto){
         return new Kuafor(
-                kuaforDto.getId(), kuaforDto.getKullanici_adi(), kuaforDto.getSifre(), kuaforDto.getAd(),kuaforDto.getSoyad(), kuaforDto.getBaslangic_saati(),kuaforDto.getBitis_saati(), kuaforDto.getRandevu()
+                kuaforDto.getId(), kuaforDto.getKullanici_adi(), kuaforDto.getSifre(), kuaforDto.getAd(),kuaforDto.getSoyad(), kuaforDto.getBaslangic_saati(),kuaforDto.getBitis_saati(), kuaforDto.getRandevu(), kuaforDto.getRol()
         );
     }
 }
