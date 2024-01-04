@@ -5,6 +5,7 @@ package com.uludag.kuafor.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uludag.kuafor.entity.Randevu;
 import com.uludag.kuafor.entity.Rol;
+import jakarta.persistence.JoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,6 +25,6 @@ public class MusteriDto {
     private String soyad;
     private String kullanici_adi;
     private String sifre;
-    private Randevu randevu;
+    private List<Randevu> randevu;
     private Rol rol;
 }

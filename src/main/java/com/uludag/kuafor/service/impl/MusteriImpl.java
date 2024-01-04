@@ -40,8 +40,7 @@ public class MusteriImpl implements MusteriService
     @Override
     public List<MusteriDto> musteriGoster() {
         List<Musteri> musteriler = musteriRepository.findAll();
-        return musteriler.stream().map((musteri) -> MusteriMapper.mapToMusteriDto(musteri))
-                .collect(Collectors.toList());
+        return musteriler.stream().map((musteri) -> MusteriMapper.mapToMusteriDto(musteri)).collect(Collectors.toList());
     }
 
     @Override

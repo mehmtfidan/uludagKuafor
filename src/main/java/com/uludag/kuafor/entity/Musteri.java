@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,9 +26,8 @@ public class Musteri {
     private String kullanici_adi;
     @JsonIgnore
     private String sifre;
-    @ManyToOne
-    @JoinColumn(name = "randevu_id")
-    private Randevu randevu;
+    @ManyToMany
+    private List<Randevu> randevu;
     @ManyToOne
     @JoinColumn(name = "rol_id")
     private Rol rol;
