@@ -30,13 +30,13 @@ public class RandevuController {
         return randevuService.randevuKaydet(randevu);
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<RandevuDto> idIleRandevuGoster(@PathVariable Long id){
-        RandevuDto randevuDto = randevuService.idIleRandevuGoster(id);
+    @GetMapping("{Id}")
+    public ResponseEntity<RandevuDto> idIleRandevuGoster(@PathVariable("Id") Long Id){
+        RandevuDto randevuDto = randevuService.idIleRandevuGoster(Id);
         return ResponseEntity.ok(randevuDto);
     }
-    @DeleteMapping("{id}")
-    public ResponseEntity<String>randevuSil(@PathVariable("id") Long Id){
+    @DeleteMapping("{Id}")
+    public ResponseEntity<String>randevuSil(@PathVariable("Id") Long Id){
         randevuService.randevuSil(Id);
         return ResponseEntity.ok("Randevu başarıyla silindi.");
     }

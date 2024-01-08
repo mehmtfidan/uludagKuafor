@@ -58,12 +58,15 @@ public class MusteriImpl implements MusteriService
     }
 
     @Override
-    public void musteriSil(Long Id) {
-        musteriRepository.findById(Id)
+    public void musteriSil(Long id) {
+        musteriRepository.findById(id)
                 .orElseThrow(() -> new KaynakBulunamadiException("Bu id ile kayitli bir musteri bulunamadi." ));
-        musteriRepository.deleteById(Id);
+        musteriRepository.deleteById(id);
     }
 
+    public List<Randevu> getMusteriRandevular(Long id) {
+        return musteriRepository.findMusteriBy(id);
+    }
 //    @Override
 //    public Musteri randevuKaydet(Musteri musteri) {
 //        return musteriRepository.save(musteri);

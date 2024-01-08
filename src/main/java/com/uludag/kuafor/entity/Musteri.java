@@ -1,11 +1,13 @@
 package com.uludag.kuafor.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.uludag.kuafor.repository.RandevuRepository;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 

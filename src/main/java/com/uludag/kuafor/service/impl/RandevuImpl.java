@@ -28,9 +28,8 @@ public class RandevuImpl implements RandevuService {
 
     @Override
     public List<RandevuDto> randevuGoster() {
-        List<Randevu> randevular = (List<Randevu>) randevuRepository.findAll();
+        List<Randevu> randevular = randevuRepository.findAll();
         return randevular.stream().map(randevu -> RandevuMapper.mapRandevuDto(randevu)).collect(Collectors.toList());
-
     }
 
     @Override
@@ -39,8 +38,8 @@ public class RandevuImpl implements RandevuService {
     }
 
     @Override
-    public RandevuDto idIleRandevuGoster(Long id) {
-        Randevu randevu = randevuRepository.findById(id).orElseThrow(() -> new KaynakBulunamadiException("Kayıtlı randevu bulunamadı."));
+    public RandevuDto idIleRandevuGoster(Long Id) {
+        Randevu randevu = randevuRepository.findById(Id).orElseThrow(() -> new KaynakBulunamadiException("Kayıtlı randevu bulunamadı."));
         return RandevuMapper.mapRandevuDto(randevu);
     }
 
@@ -61,9 +60,9 @@ public class RandevuImpl implements RandevuService {
     }
 
     @Override
-    public void randevuSil(Long id) {
-        randevuRepository.findById(id).orElseThrow(() -> new KaynakBulunamadiException("Bu id ile kayıtlı personel bulunamadı."));
-        randevuRepository.deleteById(id);
+    public void randevuSil(Long Id) {
+        randevuRepository.findById(Id).orElseThrow(() -> new KaynakBulunamadiException("Bu id ile kayıtlı personel bulunamadı."));
+        randevuRepository.deleteById(Id);
     }
 
 

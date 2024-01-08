@@ -14,6 +14,7 @@ import com.uludag.kuafor.service.MusteriService;
 
 import lombok.AllArgsConstructor;
 
+import java.util.Collections;
 import java.util.List;
 
 @AllArgsConstructor
@@ -55,8 +56,13 @@ public class MusteriController {
 
     //Musteri silme
     @DeleteMapping("{id}")
-    public ResponseEntity<String>MusteriSil(@PathVariable("id") Long Id){
+    public ResponseEntity<String>MusteriSil(@PathVariable("id") Long Id) {
         musteriService.musteriSil(Id);
         return ResponseEntity.ok("Hesap Silindi!");
+    }
+
+    @GetMapping("/randevular/{id}")
+    public List<Randevu> getRandevularByMusteriId(@PathVariable("id") Long musteriId) {
+        return musteriService.getMusteriRandevular(musteriId);
     }
 }

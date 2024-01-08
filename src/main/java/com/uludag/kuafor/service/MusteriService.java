@@ -7,11 +7,12 @@ import com.uludag.kuafor.entity.Randevu;
 import java.util.List;
 public interface MusteriService {
    MusteriDto musteriEkle(MusteriDto musteriDto);
-    MusteriDto idIleGetir(Long Id);
+    MusteriDto idIleGetir(Long id);
    List<MusteriDto> musteriGoster();
     MusteriDto musteriGuncelle(Long id,MusteriDto guncellenenMusteri);
     void musteriSil(Long Id);
 
+    public List<Randevu> getMusteriRandevular(Long id);
 //    Musteri randevuKaydet(Musteri musteri);
 //
 //    RandevuDto idIleRandevuGoster(Long id);

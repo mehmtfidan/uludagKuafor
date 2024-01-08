@@ -23,8 +23,8 @@ public class KuaforController {
     KuaforService kuaforService;
 
     @GetMapping("{id}")
-    public ResponseEntity<KuaforDto>saatGoruntule(@PathVariable ("id") Long id){
-        KuaforDto kuaforDto = kuaforService.saatGoruntule(id);
+    public ResponseEntity<KuaforDto>saatGoruntule(@PathVariable ("id") Long Id){
+        KuaforDto kuaforDto = kuaforService.saatGoruntule(Id);
         return ResponseEntity.ok(kuaforDto);
         
     }
