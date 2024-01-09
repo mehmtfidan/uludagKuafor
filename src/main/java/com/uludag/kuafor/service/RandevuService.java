@@ -14,5 +14,4 @@ public interface RandevuService {
         RandevuDto randevuGuncelle(RandevuDto guncelRandevu);
         void randevuSil(Long id);
 
-        public String getRandevuDurumu(Long id);
 }

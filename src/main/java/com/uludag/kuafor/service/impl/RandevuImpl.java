@@ -66,21 +66,7 @@ public class RandevuImpl implements RandevuService {
         randevuRepository.deleteById(Id);
     }
 
-    @Override
-    public String getRandevuDurumu(Long id) {
-        if (idIleRandevuGoster(id).getRandevuDurumu() == null) {
-            idIleRandevuGoster(id).setRandevuDurumu("Beklemede");
-            return "Beklemede";
-        }
-        else if (idIleRandevuGoster(id).getRandevuDurumu().toLowerCase() == "onaylanmadı"){
-            idIleRandevuGoster(id).setRandevuDurumu("Onaylanmadı");
-            return "Onaylanmadı";
-        }
-        else {
-            idIleRandevuGoster(id).setRandevuDurumu("Onaylandı");
-            return "Onaylandı";
-        }
-    }
+
 
 
 }
