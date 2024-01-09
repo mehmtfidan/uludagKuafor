@@ -14,7 +14,8 @@ public class RandevuMapper {
                 randevu.getMusteriNotu(),
                 randevu.getRandevuSaati(),
                 randevu.getRandevuGunu(),
-                randevu.getRandevuDurumu()
+                randevu.getRandevuDurumu(),
+                randevu.getHizmetler()
         );
     }
     public static Randevu maptoRandevu(RandevuDto randevuDto){
@@ -25,7 +26,8 @@ public class RandevuMapper {
                 randevuDto.getMusteriNotu(),
                 randevuDto.getRandevuSaati(),
                 randevuDto.getRandevuGunu(),
-                randevuDto.getRandevuDurumu()
+                randevuDto.getRandevuDurumu(),
+                randevuDto.getHizmetler()
         );
     }
 

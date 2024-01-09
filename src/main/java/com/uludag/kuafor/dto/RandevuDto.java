@@ -25,4 +25,5 @@ public class RandevuDto {
     private LocalTime randevuSaati;
     private Date randevuGunu;
     private String randevuDurumu;
+    private String hizmetler;
 }

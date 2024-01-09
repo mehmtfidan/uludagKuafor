@@ -3,6 +3,7 @@ package com.uludag.kuafor.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.uludag.kuafor.entity.Kuafor;
 import com.uludag.kuafor.entity.Musteri;
 import com.uludag.kuafor.exception.KaynakBulunamadiException;
@@ -31,9 +32,12 @@ public class RandevuImpl implements RandevuService {
         List<Randevu> randevular = randevuRepository.findAll();
         return randevular.stream().map(randevu -> RandevuMapper.mapRandevuDto(randevu)).collect(Collectors.toList());
     }
-
     @Override
+    @JsonIgnoreProperties({"randevuDurumu"})
     public Randevu randevuKaydet(Randevu randevu) {
+        if (randevu.getRandevuDurumu()!=null){
+            randevu.setRandevuDurumu("Beklemede");
+        }
         return randevuRepository.save(randevu);
     }
 
