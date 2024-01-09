@@ -54,7 +54,7 @@ public class RandevuImpl implements RandevuService {
         randevu.setMusteriNotu(randevu.getMusteriNotu());
         randevu.setRandevuSaati(randevu.getRandevuSaati());
         randevu.setRandevuGunu(randevu.getRandevuGunu());
-        randevu.setRandevuDurumu(randevu.getRandevuDurumu());
+        randevu.setRandevuDurumu(Character.toUpperCase(randevu.getRandevuDurumu().charAt(0)) + randevu.getRandevuDurumu().substring(1));
 
         Randevu vtGuncellenmis = randevuRepository.save(randevu);
         return RandevuMapper.mapRandevuDto(vtGuncellenmis);

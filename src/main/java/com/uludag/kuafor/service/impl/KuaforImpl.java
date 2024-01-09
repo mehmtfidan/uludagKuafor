@@ -68,7 +68,7 @@ public class KuaforImpl implements KuaforService {
              randevuDurum.setRandevuDurumu("Beklemede");
         } else if (rDurum.getRandevuDurumu().toLowerCase().equals("onaylandı")||
                 rDurum.getRandevuDurumu().toLowerCase().equals("reddedildi")) {
-            randevuDurum.setRandevuDurumu(rDurum.getRandevuDurumu());
+            randevuDurum.setRandevuDurumu(Character.toUpperCase(rDurum.getRandevuDurumu().charAt(0)) + rDurum.getRandevuDurumu().substring(1));
         }
         else{
             randevuDurum.setRandevuDurumu("Beklemede");
