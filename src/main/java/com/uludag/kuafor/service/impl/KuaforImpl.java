@@ -2,6 +2,7 @@ package com.uludag.kuafor.service.impl;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.uludag.kuafor.dto.KuaforDto;
 import com.uludag.kuafor.entity.Kuafor;
+import com.uludag.kuafor.entity.Randevu;
 import com.uludag.kuafor.exception.KaynakBulunamadiException;
 import com.uludag.kuafor.mapper.KuaforMapper;
 import com.uludag.kuafor.repository.KuaforRepository;
@@ -40,7 +41,9 @@ public class KuaforImpl implements KuaforService {
         Kuafor vtGuncellenmis = kuaforRepository.save(kuaforSaat);
         return KuaforMapper.mapToKuaforDto(vtGuncellenmis);
     }
-
+    public List<Randevu> getKuaforRandevular(Long id) {
+        return kuaforRepository.findKuaforById(id);
+    }
     /*
     @Override
     public List<LocalTime> generateCalismaSaatleri(LocalTime baslamaSaati, LocalTime cikmaSaati) {

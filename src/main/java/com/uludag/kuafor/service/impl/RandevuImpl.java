@@ -54,6 +54,7 @@ public class RandevuImpl implements RandevuService {
         randevu.setMusteriNotu(randevu.getMusteriNotu());
         randevu.setRandevuSaati(randevu.getRandevuSaati());
         randevu.setRandevuGunu(randevu.getRandevuGunu());
+        randevu.setRandevuDurumu(randevu.getRandevuDurumu());
 
         Randevu vtGuncellenmis = randevuRepository.save(randevu);
         return RandevuMapper.mapRandevuDto(vtGuncellenmis);
@@ -63,6 +64,22 @@ public class RandevuImpl implements RandevuService {
     public void randevuSil(Long Id) {
         randevuRepository.findById(Id).orElseThrow(() -> new KaynakBulunamadiException("Bu id ile kayıtlı personel bulunamadı."));
         randevuRepository.deleteById(Id);
+    }
+
+    @Override
+    public String getRandevuDurumu(Long id) {
+        if (idIleRandevuGoster(id).getRandevuDurumu() == null) {
+            idIleRandevuGoster(id).setRandevuDurumu("Beklemede");
+            return "Beklemede";
+        }
+        else if (idIleRandevuGoster(id).getRandevuDurumu().toLowerCase() == "onaylanmadı"){
+            idIleRandevuGoster(id).setRandevuDurumu("Onaylanmadı");
+            return "Onaylanmadı";
+        }
+        else {
+            idIleRandevuGoster(id).setRandevuDurumu("Onaylandı");
+            return "Onaylandı";
+        }
     }
 
 

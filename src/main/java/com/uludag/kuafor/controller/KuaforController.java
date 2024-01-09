@@ -1,6 +1,7 @@
 package com.uludag.kuafor.controller;
 
 import com.uludag.kuafor.dto.KuaforDto;
+import com.uludag.kuafor.entity.Randevu;
 import com.uludag.kuafor.service.KuaforService;
 import lombok.AllArgsConstructor;
 
@@ -38,7 +39,11 @@ public class KuaforController {
                                                  @RequestBody KuaforDto kuaforDto ) {
         return this.kuaforService.calismaSaatleri(kuaforId, kuaforDto.getBaslangic_saati(), kuaforDto.getBitis_saati());
         }
+    @GetMapping("/randevular/{id}")
+    public List<Randevu> getRandevularByMusteriId(@PathVariable("id") Long kuaforId) {
+        return kuaforService.getKuaforRandevular(kuaforId);
     }
+}
 
 
         

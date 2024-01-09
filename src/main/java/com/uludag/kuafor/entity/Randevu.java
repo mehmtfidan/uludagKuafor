@@ -30,4 +30,5 @@ public class Randevu {
     private String musteriNotu;
     private LocalTime randevuSaati;
     private Date randevuGunu;
+    private String randevuDurumu;
 }

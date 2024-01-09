@@ -13,7 +13,8 @@ public class RandevuMapper {
                 randevu.getKuafor().getId(),
                 randevu.getMusteriNotu(),
                 randevu.getRandevuSaati(),
-                randevu.getRandevuGunu()
+                randevu.getRandevuGunu(),
+                randevu.getRandevuDurumu()
         );
     }
     public static Randevu maptoRandevu(RandevuDto randevuDto){
@@ -23,7 +24,8 @@ public class RandevuMapper {
                 randevuDto.getKuafor(),
                 randevuDto.getMusteriNotu(),
                 randevuDto.getRandevuSaati(),
-                randevuDto.getRandevuGunu()
+                randevuDto.getRandevuGunu(),
+                randevuDto.getRandevuDurumu()
         );
     }
 

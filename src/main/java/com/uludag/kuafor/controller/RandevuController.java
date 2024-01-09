@@ -45,4 +45,9 @@ public class RandevuController {
         RandevuDto randevuDto = randevuService.randevuGuncelle(guncelRandevu);
         return ResponseEntity.ok(randevuDto);
     }
+    @GetMapping("/durum/{randevuId}")
+    public ResponseEntity<String> getRandevuDurumu(@PathVariable("randevuId") Long randevuId) {
+        String durum = randevuService.getRandevuDurumu(randevuId);
+        return ResponseEntity.ok(durum);
+    }
 }

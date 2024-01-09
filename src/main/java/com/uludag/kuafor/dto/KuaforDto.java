@@ -24,6 +24,5 @@ public class KuaforDto {
     private String soyad;
     private LocalTime baslangic_saati;
     private LocalTime bitis_saati;
-    private Randevu randevu;
     private Rol rol;
 }

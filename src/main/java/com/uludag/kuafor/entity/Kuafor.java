@@ -30,9 +30,6 @@ public class Kuafor {
     private LocalTime baslangic_saati;
     private LocalTime bitis_saati;
     @ManyToOne
-    @JoinColumn(name = "randevu_id")
-    private Randevu randevu;
-    @ManyToOne
     @JoinColumn(name = "rol_id")
     private Rol rol;
 

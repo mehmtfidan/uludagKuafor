@@ -6,14 +6,10 @@ import com.uludag.kuafor.entity.Musteri;
 import com.uludag.kuafor.entity.Randevu;
 import com.uludag.kuafor.exception.KaynakBulunamadiException;
 import com.uludag.kuafor.mapper.MusteriMapper;
-import com.uludag.kuafor.mapper.RandevuMapper;
 import com.uludag.kuafor.repository.MusteriRepository;
-import com.uludag.kuafor.repository.RandevuRepository;
 import com.uludag.kuafor.service.MusteriService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -67,16 +63,4 @@ public class MusteriImpl implements MusteriService
     public List<Randevu> getMusteriRandevular(Long id) {
         return musteriRepository.findMusteriBy(id);
     }
-//    @Override
-//    public Musteri randevuKaydet(Musteri musteri) {
-//        return musteriRepository.save(musteri);
-//    }
-
-
-//
-//    @Override
-//    public RandevuDto idIleRandevuGoster(Long id) {
-//        Randevu randevu = randevuRepository.findById(id).orElseThrow(()-> new KaynakBulunamadiException("Kayıtlı randevu bulunamadı."));
-//        return RandevuMapper.mapRandevuDto(randevu);
-//    }
 }
