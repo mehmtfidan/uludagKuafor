@@ -21,7 +21,8 @@ public class ApplicationConfig {
     private final UserRepository userRepository;
     @Bean
     public UserDetailsService userDetailsService() {
-        return username -> userRepository.findByEmail(username)
+
+        return id -> userRepository.findUserById(Long.valueOf(id))
                 .orElseThrow(()->new UsernameNotFoundException("Kullanıcı bulunamadı"));
 
     }

@@ -16,6 +16,6 @@ public class RegisterRequest {
     private String soyad;
     private String kullanici_adi;
     private String sifre;
-    private Gorev role;
+    private Gorev gorev;
 
 }

@@ -47,7 +47,7 @@ public class AuthenticationService {
                         request.getSifre()
                 )
         );
-        var user = userRepository.findByEmail(request.getKullanici_adi())
+        var user = userRepository.findUserById(request.getId())
                 .orElseThrow();
         var jwtToken = jwtService.generateToken(user);
 //        var refreshToken = jwtService.generateRefreshToken(user);
