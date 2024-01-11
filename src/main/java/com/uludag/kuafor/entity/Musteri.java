@@ -20,4 +20,9 @@ public class Musteri {
     private String soyad;
     private String kullanici_adi;
     private String sifre;
+
+
 }
+
+
+
