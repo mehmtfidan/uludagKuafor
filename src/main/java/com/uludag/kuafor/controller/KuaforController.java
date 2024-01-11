@@ -1,7 +1,10 @@
 package com.uludag.kuafor.controller;
 
 import com.uludag.kuafor.dto.KuaforDto;
+import com.uludag.kuafor.dto.RandevuDto;
+import com.uludag.kuafor.entity.Randevu;
 import com.uludag.kuafor.service.KuaforService;
+import com.uludag.kuafor.service.RandevuService;
 import lombok.AllArgsConstructor;
 
 import java.time.LocalTime;
@@ -23,39 +26,33 @@ public class KuaforController {
     KuaforService kuaforService;
 
     @GetMapping("{id}")
-    public ResponseEntity<KuaforDto>saatGoruntule(@PathVariable ("id") Long id){
-        KuaforDto kuaforDto = kuaforService.saatGoruntule(id);
+    public ResponseEntity<KuaforDto> bilgiGoruntule(@PathVariable ("id") Long Id){
+        KuaforDto kuaforDto = kuaforService.bilgiGoruntule(Id);
         return ResponseEntity.ok(kuaforDto);
         
     }
     @PutMapping("{id}")
-    public ResponseEntity<KuaforDto>saatGuncelle(@PathVariable("id") Long kuaforId, @RequestBody KuaforDto guncelSaat){
-        KuaforDto kuaforDto = kuaforService.saatGuncelle(kuaforId,guncelSaat);
+    public ResponseEntity<KuaforDto> bilgiGuncelle(@PathVariable("id") Long kuaforId, @RequestBody KuaforDto guncelSaat){
+        KuaforDto kuaforDto = kuaforService.bilgiGuncelle(kuaforId,guncelSaat);
         return ResponseEntity.ok(kuaforDto);
     }
     @GetMapping("/mesai/{id}")
     public List<LocalTime> calismaSaatleri(@PathVariable("id") Long kuaforId,
                                                  @RequestBody KuaforDto kuaforDto ) {
-
-        // KuaforDto kuafor = kuaforService.saatGoruntule(kuaforId); 
-        // baslamaSaati = kuafor.getBaslangicSaati();
-        // bitisSaati = kuafor.getBitisSaati();
-        // List<LocalTime> calismaSaatleri = new ArrayList<>();
-        // while (baslamaSaati.isBefore(bitisSaati)) {
-        //     calismaSaatleri.add(baslamaSaati);
-        //     baslamaSaati = baslamaSaati.plusHours(1);
-        // }
-        // return calismaSaatleri;
         return this.kuaforService.calismaSaatleri(kuaforId, kuaforDto.getBaslangic_saati(), kuaforDto.getBitis_saati());
         }
+    @GetMapping("/randevular/{id}")
+    public List<Randevu> getRandevularByMusteriId(@PathVariable("id") Long kuaforId) {
+        return kuaforService.getKuaforRandevular(kuaforId);
     }
-        /* 
-        while (baslamaSaati.isBefore(bitisSaati)) {
-            calismaSaatleri.add(baslamaSaati);
-            baslamaSaati = baslamaSaati.plusHours(1);
-        }
-        */
+    RandevuService randevuService;
 
-    ///////
-//servise aldım
+    @PutMapping("/durum/{randevuId}")
+    public ResponseEntity<RandevuDto> setRandevuDurumu(@PathVariable ("randevuId") Long randevuId,@RequestBody RandevuDto rDurum){
+        RandevuDto durum = kuaforService.setRandevuDurumu(randevuId, rDurum);
+        return ResponseEntity.ok(durum);
+    }
+}
+
+
         

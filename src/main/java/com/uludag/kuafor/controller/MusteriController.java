@@ -1,5 +1,9 @@
 package com.uludag.kuafor.controller;
 
+import com.uludag.kuafor.dto.RandevuDto;
+import com.uludag.kuafor.entity.Musteri;
+import com.uludag.kuafor.entity.Randevu;
+import com.uludag.kuafor.service.RandevuService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +14,7 @@ import com.uludag.kuafor.service.MusteriService;
 
 import lombok.AllArgsConstructor;
 
+import java.util.Collections;
 import java.util.List;
 
 @AllArgsConstructor
@@ -44,15 +49,20 @@ public class MusteriController {
 
     //Musteri güncelleme
     @PutMapping("{id}")
-    public ResponseEntity<MusteriDto>musteriGuncelle(@PathVariable("id") Long Id, @RequestBody MusteriDto guncelMusteri){
-        MusteriDto musteriDto = musteriService.musteriGuncelle(Id,guncelMusteri);
+    public ResponseEntity<MusteriDto>musteriGuncelle(@PathVariable Long id,@RequestBody MusteriDto guncelMusteri){
+        MusteriDto musteriDto = musteriService.musteriGuncelle(id,guncelMusteri);
         return ResponseEntity.ok(musteriDto);
     }
 
     //Musteri silme
     @DeleteMapping("{id}")
-    public ResponseEntity<String>MusteriSil(@PathVariable("id") Long Id){
+    public ResponseEntity<String>MusteriSil(@PathVariable("id") Long Id) {
         musteriService.musteriSil(Id);
         return ResponseEntity.ok("Hesap Silindi!");
+    }
+
+    @GetMapping("/randevular/{id}")
+    public List<Randevu> getRandevularByMusteriId(@PathVariable("id") Long musteriId) {
+        return musteriService.getMusteriRandevular(musteriId);
     }
 }

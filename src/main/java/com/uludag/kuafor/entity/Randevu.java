@@ -3,6 +3,8 @@ package com.uludag.kuafor.entity;
 import java.time.LocalTime;
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,13 +20,16 @@ import lombok.NoArgsConstructor;
 public class Randevu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;    
-    private Long musteriId;
+    private Long id;
+    @ManyToOne
+    @JoinColumn(name = "musteri_id")
+    private Musteri musteri;
     @ManyToOne
     @JoinColumn(name = "kuafor_id")
-    private Kuafor kuafor_id;
-    private String islemler;
+    private Kuafor kuafor;
     private String musteriNotu;
     private LocalTime randevuSaati;
     private Date randevuGunu;
+    private String randevuDurumu;
+    private String hizmetler;
 }

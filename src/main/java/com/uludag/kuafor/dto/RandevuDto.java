@@ -1,8 +1,8 @@
 package com.uludag.kuafor.dto;
 
+import com.uludag.kuafor.entity.Musteri;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
@@ -12,16 +12,18 @@ import com.uludag.kuafor.entity.Kuafor;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 
 public class RandevuDto {
     
-    private Long id;    
+    private Long Id;
+    private Musteri musteri;
+    private Kuafor kuafor;
     private Long musteriId;
-    private Kuafor kuafor_id;
-    private String islemler;
+    private Long kuaforId;
     private String musteriNotu;
     private LocalTime randevuSaati;
     private Date randevuGunu;
+    private String randevuDurumu;
+    private String hizmetler;
 }

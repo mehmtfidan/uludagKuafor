@@ -1,24 +1,23 @@
 package com.uludag.kuafor.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Admin")
-public class Admin {
+@Table(name = "Rol")
+public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
-    private String kullanici_adi;
-    private String sifre;
-    @ManyToOne
-    @JoinColumn(name = "rol_id")
-    private Rol rol;
+    @JsonIgnore
+    private String rol;
 }
