@@ -35,7 +35,7 @@ public class RandevuImpl implements RandevuService {
     @Override
     @JsonIgnoreProperties({"randevuDurumu"})
     public Randevu randevuKaydet(Randevu randevu) {
-        if (randevu.getRandevuDurumu()!=null){
+        if (randevu.getRandevuDurumu()==null){
             randevu.setRandevuDurumu("Beklemede");
         }
         return randevuRepository.save(randevu);
