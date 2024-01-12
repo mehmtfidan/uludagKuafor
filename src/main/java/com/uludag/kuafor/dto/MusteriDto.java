@@ -1,16 +1,12 @@
 package com.uludag.kuafor.dto;
 
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.uludag.kuafor.entity.Gorev;
 import com.uludag.kuafor.entity.Randevu;
-import com.uludag.kuafor.entity.Rol;
-import jakarta.persistence.JoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.jpa.repository.Query;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -27,5 +23,6 @@ public class MusteriDto {
     private String kullanici_adi;
     private String sifre;
     private List<Randevu> randevu;
-    private Rol rol;
+//    private Rol rol;
+    private Gorev gorev;
 }

@@ -1,5 +1,6 @@
 package com.uludag.kuafor.dto;
 
+import com.uludag.kuafor.entity.Gorev;
 import com.uludag.kuafor.entity.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,4 +17,10 @@ public class AdminDto {
     private String sifre;
     private Rol rol;
     private Long rolId;
+
+
+    private Gorev gorev;
+
+    public AdminDto(Long id, String kullaniciAdi, String sifre, Rol rol, Gorev gorev) {
+    }
 }

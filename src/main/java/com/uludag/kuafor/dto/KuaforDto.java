@@ -1,15 +1,12 @@
 package com.uludag.kuafor.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.uludag.kuafor.entity.Randevu;
+import com.uludag.kuafor.entity.Gorev;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import com.uludag.kuafor.entity.Rol;
 
 import java.time.LocalTime;
-import java.util.List;
 
 
 @Getter
@@ -24,5 +21,6 @@ public class KuaforDto {
     private String soyad;
     private LocalTime baslangic_saati;
     private LocalTime bitis_saati;
-    private Rol rol;
+//    private Rol rol;
+    private Gorev gorev;
 }

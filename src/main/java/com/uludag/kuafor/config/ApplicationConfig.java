@@ -1,7 +1,7 @@
 package com.uludag.kuafor.config;
 
 
-import com.uludag.kuafor.repository.UserRepository;
+import com.uludag.kuafor.repository.MusteriRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,11 +18,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
-    private final UserRepository userRepository;
+//    private final UserRepository userRepository;
+  private final MusteriRepository musteriRepository;
     @Bean
     public UserDetailsService userDetailsService() {
 
-        return id -> userRepository.findUserById(Long.valueOf(id))
+        return id -> musteriRepository.findmusteriBy(Long.valueOf(id))
+//        return id -> userRepository.findUserById(Long.valueOf(id))
                 .orElseThrow(()->new UsernameNotFoundException("Kullanıcı bulunamadı"));
 
     }
