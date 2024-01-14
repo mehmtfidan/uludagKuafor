@@ -5,6 +5,7 @@ import com.uludag.kuafor.auth.AuthenticationResponse;
 import com.uludag.kuafor.auth.RegisterRequest;
 import com.uludag.kuafor.entity.Gorev;
 import com.uludag.kuafor.entity.Musteri;
+import com.uludag.kuafor.repository.KuaforRepository;
 import com.uludag.kuafor.repository.MusteriRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthenticationService {
     private final MusteriRepository musteriRepository;
-//    private final UserRepository userRepository;
+  private final KuaforRepository kuaforRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
@@ -30,8 +31,8 @@ public class AuthenticationService {
                 .kullanici_adi(request.getKullanici_adi())
                 .sifre(passwordEncoder.encode(request.getSifre()))
                 .gorev(Gorev.musteri)
-                .gorev(Gorev.admin)
-                .gorev(Gorev.kuafor)
+//                .gorev(Gorev.admin)
+//                .gorev(Gorev.kuafor)
                 .build();
         musteriRepository.save(user);
 //        userRepository.save(user);
@@ -40,6 +41,48 @@ public class AuthenticationService {
                 .accessToken(jwtToken)
                 .build();
     }
+
+//    public AuthenticationResponse register(RegisterRequest request, String rol) {
+//        var user;
+//        if (rol.equals("musteri")) {
+//            user = Musteri.builder()
+//                    .ad(request.getAd())
+//                    .soyad(request.getSoyad())
+//                    .kullanici_adi(request.getKullanici_adi())
+//                    .sifre(passwordEncoder.encode(request.getSifre()))
+//                    .gorev(Gorev.musteri)
+//                    .build();
+//            musteriRepository.save(user);
+//        } else if (rol.equals("kuafor")) {
+//            user = Kuafor.builder()
+//                    .ad(request.getAd())
+//                    .soyad(request.getSoyad())
+//                    .kullanici_adi(request.getKullanici_adi())
+//                    .sifre(passwordEncoder.encode(request.getSifre()))
+//                    .gorev(Gorev.kuafor)
+//                    .build();
+//            kuaforRepository.save(user);
+//        } else if (rol.equals("kuafor")) {
+////        user = admin.builder()
+////                .ad(request.getAd())
+////                .soyad(request.getSoyad())
+////                .kullanici_adi(request.getKullanici_adi())
+////                .sifre(passwordEncoder.encode(request.getSifre()))
+////                .gorev(Gorev.kuafor)
+////                .build();
+////        kuaforRepository.save(user);
+//        else {
+//            // Geçersiz rol durumunda hata fırlatın
+//            throw new IllegalArgumentException("Geçersiz rol");
+//        }
+//
+//        var jwtToken = jwtService.generateToken(user);
+//        return AuthenticationResponse.builder()
+//                .accessToken(jwtToken)
+//                .build();
+//    }
+
+
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(

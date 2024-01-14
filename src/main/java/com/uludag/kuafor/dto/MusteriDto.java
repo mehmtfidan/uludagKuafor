@@ -3,6 +3,7 @@ package com.uludag.kuafor.dto;
 
 import com.uludag.kuafor.entity.Gorev;
 import com.uludag.kuafor.entity.Randevu;
+import com.uludag.kuafor.entity.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class MusteriDto {
     private String kullanici_adi;
     private String sifre;
     private List<Randevu> randevu;
-//    private Rol rol;
+    private Rol rol;
+    private Long rol_id;
     private Gorev gorev;
 }

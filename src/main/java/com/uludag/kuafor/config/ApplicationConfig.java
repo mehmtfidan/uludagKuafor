@@ -1,6 +1,7 @@
 package com.uludag.kuafor.config;
 
 
+import com.uludag.kuafor.repository.KuaforRepository;
 import com.uludag.kuafor.repository.MusteriRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -18,16 +19,34 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
-//    private final UserRepository userRepository;
+  private final KuaforRepository kuaforRepository;
   private final MusteriRepository musteriRepository;
     @Bean
     public UserDetailsService userDetailsService() {
 
         return id -> musteriRepository.findmusteriBy(Long.valueOf(id))
-//        return id -> userRepository.findUserById(Long.valueOf(id))
                 .orElseThrow(()->new UsernameNotFoundException("Kullanıcı bulunamadı"));
 
     }
+//    @SpringBootApplication
+//    public class KuaforApplication {
+//
+//        @Bean
+//        public UserDetailsService userDetailsService(KuaforRepository kuaforRepository) {
+//
+//            return id -> kuaforRepository.findKuaforBy(Long.valueOf(id))
+//                    .map(kuafor -> User.withUsername(kuafor.getUsername())
+//                            .password(kuafor.getSifre())
+//                            .roles("KUAFÖR")  // Rolleri de ekleyin
+//                            .build())
+//                    .orElseThrow(() -> new UsernameNotFoundException("Kuaför bulunamadı"));
+//        }
+//
+//    }
+
+
+
+
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();

@@ -31,18 +31,17 @@ public class Musteri implements UserDetails {
     private String sifre;
     @ManyToMany
     private List<Randevu> randevu;
-//    @ManyToOne
-//    @JoinColumn(name = "rol_id")
-//    private Rol rol;
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rol;
+    @Column(insertable=false, updatable=false)
+    private Long rol_id;
 
 
 
     @JoinColumn(name = "gorev_id")
     @Enumerated(EnumType.STRING)
     private Gorev gorev;
-
-//    public Musteri(Long id, String ad, String soyad, String kullaniciAdi, String sifre, List<Randevu> randevu, Rol rol) {
-//    }
 
 
 
