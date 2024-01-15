@@ -64,4 +64,21 @@ public class ApplicationConfig {
         return new BCryptPasswordEncoder();
     }
 
+//    // AuthenticationProvider sınıfında
+//    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+//        // ... kimlik doğrulama mantığı
+//
+//        List<GrantedAuthority> authorities = new ArrayList<>();
+//        if (kullanici.isAdmin()) {
+//            authorities.add(new SimpleGrantedAuthority("ADMIN"));
+//        } else if (kullanici.isKuafor()) {
+//            authorities.add(new SimpleGrantedAuthority("KUAFOR"));
+//        } else {
+//            authorities.add(new SimpleGrantedAuthority("MUSTERI"));
+//        }
+//
+//        return new UsernamePasswordAuthenticationToken(kullanici, token, authorities);
+//    }
+
+
 }

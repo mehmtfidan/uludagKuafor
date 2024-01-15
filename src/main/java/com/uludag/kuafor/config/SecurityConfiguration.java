@@ -23,13 +23,15 @@ public class SecurityConfiguration {
     private final AuthenticationProvider authenticationProvider;
 //    private final LogoutHandler logoutHandler;
 
+
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/**")
+                .requestMatchers("/api/auth/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -43,9 +45,29 @@ public class SecurityConfiguration {
     }
 }
 
-
-
-
+//@Bean
+//public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//    http
+//            .authorizeHttpRequests(authorize -> authorize
+//                    .requestMatchers("/api/auth/**") // antMatchers yerine requestMatchers kullanın
+//                    .permitAll()
+//                    .requestMatchers("/api/admin/**") // diğer antMatchers çağrılarını da değiştirin
+//                    .hasRole("ADMIN")
+//                    .requestMatchers("/api/kuafor/**")
+//                    .hasRole("KUAFOR")
+//                    .requestMatchers("/api/musteri/**")
+//                    .hasRole("MUSTERI")
+//                    .anyRequest()
+//                    .authenticated()
+//            )
+//            // ... diğer kodlar
+//            .sessionManagement()
+//            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//            .and()
+//            .authenticationProvider(authenticationProvider)
+//            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+//    return http.build();
+//}
 
 
 
