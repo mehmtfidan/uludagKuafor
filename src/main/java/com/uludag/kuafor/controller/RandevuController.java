@@ -30,10 +30,10 @@ public class RandevuController {
         List<RandevuDto> randevuDtoList = randevuService.randevuGoster();
         return ResponseEntity.ok(randevuDtoList);
     }
-    @PostMapping
-    public Randevu randevuKaydet(@RequestBody Randevu randevu) {
-        return randevuService.randevuKaydet(randevu);
-    }
+//    @PostMapping
+//    public Randevu randevuKaydet(@RequestBody Randevu randevu) {
+//        return randevuService.randevuKaydet(randevu);
+//    }
 
     @GetMapping("{Id}")
     public ResponseEntity<RandevuDto> idIleRandevuGoster(@PathVariable("Id") Long Id){
@@ -50,7 +50,7 @@ public class RandevuController {
         RandevuDto randevuDto = randevuService.randevuGuncelle(guncelRandevu);
         return ResponseEntity.ok(randevuDto);
     }
-    @PostMapping("ekle")
+    @PostMapping()
     public ResponseEntity<RandevuDto> randevuEkle(@RequestBody RandevuDto randevuDto){
         RandevuDto eklenenRandevu = randevuService.randevuEkle(randevuDto);
         return new ResponseEntity<>(eklenenRandevu, HttpStatus.CREATED);

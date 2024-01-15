@@ -40,15 +40,15 @@ public class RandevuImpl implements RandevuService {
         return randevular.stream().map(randevu -> RandevuMapper.mapRandevuDto(randevu)).collect(Collectors.toList());
     }
 
-    @Override
-    @JsonIgnoreProperties({"randevuDurumu"})
-    public Randevu randevuKaydet(Randevu randevu) {
-        Randevu vtEklendi = randevuRepository.save(randevu);
-        if (randevu.getRandevuDurumu() == null || randevu.getRandevuDurumu().toLowerCase() != "onaylandı" || randevu.getRandevuDurumu().toLowerCase() != "reddedildi") {
-            randevu.setRandevuDurumu("Beklemede");
-        }
-        return vtEklendi;
-    }
+//    @Override
+//    @JsonIgnoreProperties({"randevuDurumu"})
+//    public Randevu randevuKaydet(Randevu randevu) {
+//        Randevu vtEklendi = randevuRepository.save(randevu);
+//        if (randevu.getRandevuDurumu() == null || randevu.getRandevuDurumu().toLowerCase() != "onaylandı" || randevu.getRandevuDurumu().toLowerCase() != "reddedildi") {
+//            randevu.setRandevuDurumu("Beklemede");
+//        }
+//        return vtEklendi;
+//    }
 
     @Override
     public RandevuDto idIleRandevuGoster(Long Id) {

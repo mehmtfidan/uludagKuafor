@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 public interface RandevuService {
         List<RandevuDto> randevuGoster();
-        Randevu randevuKaydet(Randevu kaydedilenRandevu);
         RandevuDto idIleRandevuGoster(Long id);
         RandevuDto randevuGuncelle(RandevuDto guncelRandevu);
         void randevuSil(Long id);
