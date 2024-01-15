@@ -1,5 +1,6 @@
 package com.uludag.kuafor.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uludag.kuafor.entity.Musteri;
 import jakarta.persistence.JoinColumn;
@@ -28,6 +29,7 @@ public class RandevuDto {
     private Long kuaforId;
     private String musteriNotu;
     private LocalTime randevuSaati;
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date randevuGunu;
     private String randevuDurumu;
     private String hizmetler;
