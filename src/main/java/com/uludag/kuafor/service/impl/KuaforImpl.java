@@ -47,10 +47,10 @@ public class KuaforImpl implements KuaforService {
     }
 
     @Override
-    public List<LocalTime> calismaSaatleri(Long kuaforId, LocalTime baslamaSaati, LocalTime bitisSaati) {
+    public List<LocalTime> calismaSaatleri(Long kuaforId) {
         KuaforDto kuafor = bilgiGoruntule(kuaforId);
-        baslamaSaati = kuafor.getBaslangic_saati();
-        bitisSaati = kuafor.getBitis_saati();
+       LocalTime baslamaSaati = kuafor.getBaslangic_saati();
+        LocalTime bitisSaati = kuafor.getBitis_saati();
         List<LocalTime> calismaSaatleri = new ArrayList<>();
         while (baslamaSaati.isBefore(bitisSaati)) {
             calismaSaatleri.add(baslamaSaati);

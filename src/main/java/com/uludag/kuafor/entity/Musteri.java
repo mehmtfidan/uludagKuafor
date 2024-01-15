@@ -20,7 +20,6 @@ import java.util.List;
 public class Musteri {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     private Long id;
     private String ad;
     private String soyad;
@@ -28,8 +27,6 @@ public class Musteri {
     private String kullanici_adi;
     @JsonIgnore
     private String sifre;
-    @ManyToMany
-    private List<Randevu> randevu;
     @ManyToOne
     @JoinColumn(name = "rol_id")
     private Rol rol;

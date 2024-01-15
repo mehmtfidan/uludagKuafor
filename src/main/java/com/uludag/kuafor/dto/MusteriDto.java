@@ -26,6 +26,5 @@ public class MusteriDto {
     private String soyad;
     private String kullanici_adi;
     private String sifre;
-    private List<Randevu> randevu;
     private Rol rol;
 }

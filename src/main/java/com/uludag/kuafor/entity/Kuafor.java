@@ -19,7 +19,6 @@ import java.util.List;
 public class Kuafor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     private Long id;
     @JsonIgnore
     private String kullanici_adi;

@@ -12,7 +12,7 @@ import com.uludag.kuafor.entity.Randevu;
 public interface KuaforService {
     KuaforDto bilgiGoruntule(Long id);
     KuaforDto bilgiGuncelle(Long kuaforId, KuaforDto guncelSaat);
-    List<LocalTime> calismaSaatleri(Long kuaforId, LocalTime baslamaSaati,LocalTime bitisSaati);
+    List<LocalTime> calismaSaatleri(Long kuaforId);
     List<Randevu> getKuaforRandevular(Long id);
     RandevuDto setRandevuDurumu(Long id, RandevuDto rDurum);
 }

@@ -37,9 +37,8 @@ public class KuaforController {
         return ResponseEntity.ok(kuaforDto);
     }
     @GetMapping("/mesai/{id}")
-    public List<LocalTime> calismaSaatleri(@PathVariable("id") Long kuaforId,
-                                                 @RequestBody KuaforDto kuaforDto ) {
-        return this.kuaforService.calismaSaatleri(kuaforId, kuaforDto.getBaslangic_saati(), kuaforDto.getBitis_saati());
+    public List<LocalTime> calismaSaatleri(@PathVariable("id") Long kuaforId) {
+        return this.kuaforService.calismaSaatleri(kuaforId);
         }
     @GetMapping("/randevular/{id}")
     public List<Randevu> getRandevularByMusteriId(@PathVariable("id") Long kuaforId) {
