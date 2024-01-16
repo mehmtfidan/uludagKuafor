@@ -1,4 +1,5 @@
 package com.uludag.kuafor.service.impl;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.uludag.kuafor.dto.KuaforDto;
 import com.uludag.kuafor.dto.RandevuDto;
 import com.uludag.kuafor.entity.Kuafor;
@@ -15,6 +16,7 @@ import lombok.AllArgsConstructor;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 @AllArgsConstructor
@@ -22,7 +24,7 @@ import org.springframework.stereotype.Service;
 
 public class KuaforImpl implements KuaforService {
 
-    private final KuaforRepository kuaforRepository;
+    private KuaforRepository kuaforRepository;
 
     @Override
     public KuaforDto bilgiGoruntule(Long id) {
@@ -32,8 +34,7 @@ public class KuaforImpl implements KuaforService {
     }
 
     @Override
-    public KuaforDto bilgiGuncelle(Long kuaforId, KuaforDto guncelBilgi)
-    {
+    public KuaforDto bilgiGuncelle(Long kuaforId, KuaforDto guncelBilgi) {
         Kuafor kuaforSaat = kuaforRepository.findById(kuaforId).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı kuaför bulunmamaktadır."));
 
         kuaforSaat.setBaslangic_saati(guncelBilgi.getBaslangic_saati());
@@ -42,6 +43,7 @@ public class KuaforImpl implements KuaforService {
         Kuafor vtGuncellenmis = kuaforRepository.save(kuaforSaat);
         return KuaforMapper.mapToKuaforDto(vtGuncellenmis);
     }
+
     public List<Randevu> getKuaforRandevular(Long id) {
         return kuaforRepository.findKuaforById(id);
     }
@@ -49,7 +51,7 @@ public class KuaforImpl implements KuaforService {
     @Override
     public List<LocalTime> calismaSaatleri(Long kuaforId) {
         KuaforDto kuafor = bilgiGoruntule(kuaforId);
-       LocalTime baslamaSaati = kuafor.getBaslangic_saati();
+        LocalTime baslamaSaati = kuafor.getBaslangic_saati();
         LocalTime bitisSaati = kuafor.getBitis_saati();
         List<LocalTime> calismaSaatleri = new ArrayList<>();
         while (baslamaSaati.isBefore(bitisSaati)) {
@@ -57,26 +59,37 @@ public class KuaforImpl implements KuaforService {
             baslamaSaati = baslamaSaati.plusHours(1);
         }
         return calismaSaatleri;
-        }
-        RandevuService randevuService;
+    }
+
+    RandevuService randevuService;
     RandevuRepository randevuRepository;
+
     @Override
     public RandevuDto setRandevuDurumu(Long id, RandevuDto rDurum) {
         Randevu randevuDurum = randevuRepository.findById(id).orElseThrow(() -> new KaynakBulunamadiException("randevu bulunamadı"));
 
         if (rDurum.getRandevuDurumu().equals("")) {
-             randevuDurum.setRandevuDurumu("Beklemede");
-        } else if (rDurum.getRandevuDurumu().toLowerCase().equals("onaylandı")||
+            randevuDurum.setRandevuDurumu("Beklemede");
+        } else if (rDurum.getRandevuDurumu().toLowerCase().equals("onaylandı") ||
                 rDurum.getRandevuDurumu().toLowerCase().equals("reddedildi")) {
             randevuDurum.setRandevuDurumu(Character.toUpperCase(rDurum.getRandevuDurumu().charAt(0)) + rDurum.getRandevuDurumu().substring(1));
-        }
-        else{
+        } else {
             randevuDurum.setRandevuDurumu("Beklemede");
         }
         Randevu vtGuncellenmis = randevuRepository.save(randevuDurum);
         return RandevuMapper.mapRandevuDto(vtGuncellenmis);
     }
+
+    @Override
+    public RandevuDto getRandevuDurumu(Long randevuId) {
+        Randevu randevu = randevuRepository.findById(randevuId).orElseThrow(() -> new KaynakBulunamadiException("Randevu bulunamadı: " + randevuId));
+        RandevuDto randevuDto = new RandevuDto();
+        randevuDto.setRandevuDurumu(randevu.getRandevuDurumu());
+        return randevuDto;
+    }
 }
+
+
 
 
 

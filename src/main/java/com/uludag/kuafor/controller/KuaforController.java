@@ -1,5 +1,6 @@
 package com.uludag.kuafor.controller;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.uludag.kuafor.dto.KuaforDto;
 import com.uludag.kuafor.dto.RandevuDto;
 import com.uludag.kuafor.entity.Randevu;
@@ -9,6 +10,8 @@ import lombok.AllArgsConstructor;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,6 +54,13 @@ public class KuaforController {
         RandevuDto durum = kuaforService.setRandevuDurumu(randevuId, rDurum);
         return ResponseEntity.ok(durum);
     }
+
+    @GetMapping("/durum/{randevuId}")
+//    @JsonIgnoreProperties("{randevuSaati, randevuGunu, musteriId, randevuId, hizmetler, id, musteriNotu}")
+    public RandevuDto getRandevuDurumu(@PathVariable("randevuId") Long randevuId) {
+        return kuaforService.getRandevuDurumu(randevuId);
+    }
+
 }
 
 

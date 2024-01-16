@@ -61,8 +61,4 @@ public class MusteriController {
         return ResponseEntity.ok("Hesap Silindi!");
     }
 
-    @GetMapping("/randevular/{id}")
-    public List<Randevu> getRandevularByMusteriId(@PathVariable("id") Long musteriId) {
-        return musteriService.getMusteriRandevular(musteriId);
-    }
 }

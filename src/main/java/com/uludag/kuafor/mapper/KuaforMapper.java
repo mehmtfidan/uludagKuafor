@@ -2,9 +2,6 @@ package com.uludag.kuafor.mapper;
 
 import com.uludag.kuafor.dto.KuaforDto;
 import com.uludag.kuafor.entity.Kuafor;
-import com.uludag.kuafor.entity.Randevu;
-
-import java.util.List;
 
 public class KuaforMapper {
     public static KuaforDto mapToKuaforDto(Kuafor kuafor){

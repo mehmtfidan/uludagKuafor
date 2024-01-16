@@ -1,8 +1,5 @@
 package com.uludag.kuafor.controller;
-import com.uludag.kuafor.dto.KuaforDto;
-import com.uludag.kuafor.dto.MusteriDto;
 import com.uludag.kuafor.dto.RandevuDto;
-import com.uludag.kuafor.entity.Randevu;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalTime;
 import java.util.List;
 
 @AllArgsConstructor
@@ -26,8 +22,8 @@ public class RandevuController {
 
     //Randevuların hepsini getir
     @GetMapping
-    public ResponseEntity<List<RandevuDto>>randevuGoster() {
-        List<RandevuDto> randevuDtoList = randevuService.randevuGoster();
+    public ResponseEntity<List<RandevuDto>>randevuGoster(Long randevuId) {
+        List<RandevuDto> randevuDtoList = randevuService.randevuGoster(randevuId);
         return ResponseEntity.ok(randevuDtoList);
     }
 //    @PostMapping

@@ -1,24 +1,14 @@
 package com.uludag.kuafor.service.impl;
 
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.uludag.kuafor.dto.KuaforDto;
-import com.uludag.kuafor.dto.MusteriDto;
 import com.uludag.kuafor.entity.Kuafor;
 import com.uludag.kuafor.entity.Musteri;
 import com.uludag.kuafor.exception.KaynakBulunamadiException;
-import com.uludag.kuafor.mapper.KuaforMapper;
-import com.uludag.kuafor.mapper.MusteriMapper;
 import com.uludag.kuafor.mapper.RandevuMapper;
 import com.uludag.kuafor.repository.KuaforRepository;
 import com.uludag.kuafor.repository.MusteriRepository;
-import com.uludag.kuafor.service.KuaforService;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import com.uludag.kuafor.dto.RandevuDto;
@@ -36,7 +26,7 @@ public class RandevuImpl implements RandevuService {
     KuaforRepository kuaforRepository;
 
     @Override
-    public List<RandevuDto> randevuGoster() {
+    public List<RandevuDto> randevuGoster(Long randevuId) {
         List<Randevu> randevular = randevuRepository.findAll();
         return randevular.stream().map(randevu -> RandevuMapper.mapRandevuDto(randevu)).collect(Collectors.toList());
     }
