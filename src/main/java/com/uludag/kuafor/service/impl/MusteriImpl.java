@@ -6,6 +6,7 @@ import com.uludag.kuafor.entity.Musteri;
 import com.uludag.kuafor.entity.Randevu;
 import com.uludag.kuafor.exception.KaynakBulunamadiException;
 import com.uludag.kuafor.mapper.MusteriMapper;
+import com.uludag.kuafor.repository.KuaforRepository;
 import com.uludag.kuafor.repository.MusteriRepository;
 import com.uludag.kuafor.service.MusteriService;
 import lombok.AllArgsConstructor;

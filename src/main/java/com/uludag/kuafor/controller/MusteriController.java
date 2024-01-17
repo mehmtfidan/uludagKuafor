@@ -3,6 +3,7 @@ package com.uludag.kuafor.controller;
 import com.uludag.kuafor.dto.RandevuDto;
 import com.uludag.kuafor.entity.Musteri;
 import com.uludag.kuafor.entity.Randevu;
+import com.uludag.kuafor.service.KuaforService;
 import com.uludag.kuafor.service.RandevuService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -59,6 +60,11 @@ public class MusteriController {
     public ResponseEntity<String>MusteriSil(@PathVariable("id") Long Id) {
         musteriService.musteriSil(Id);
         return ResponseEntity.ok("Hesap Silindi!");
+    }
+
+    @GetMapping("/randevular/{id}")
+    public List<Randevu> getRandevularByMusteriId(@PathVariable("id") Long musteriId) {
+        return musteriService.getMusteriRandevular(musteriId);
     }
 
 }
