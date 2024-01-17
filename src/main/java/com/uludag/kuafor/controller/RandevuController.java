@@ -46,8 +46,8 @@ public class RandevuController {
         RandevuDto randevuDto = randevuService.randevuGuncelle(id,guncelRandevu);
         return ResponseEntity.ok(randevuDto);
     }
-    @PostMapping("{id}")
-    public ResponseEntity<RandevuDto> randevuEkle(Long id,@RequestBody RandevuDto randevuDto){
+    @PostMapping
+    public ResponseEntity<RandevuDto> randevuEkle(@RequestBody RandevuDto randevuDto){
         RandevuDto eklenenRandevu = randevuService.randevuEkle(randevuDto);
         return new ResponseEntity<>(eklenenRandevu, HttpStatus.CREATED);
     }
