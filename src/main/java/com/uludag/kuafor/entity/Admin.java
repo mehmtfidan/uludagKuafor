@@ -21,11 +21,11 @@ public class Admin implements UserDetails {
     private Long id;
     private String kullanici_adi;
     private String sifre;
-    @ManyToOne
+//    @ManyToOne
 //    @JoinColumn(name = "rol_id")
-    private Rol rol;
+    private String token;
 
-    @JoinColumn(name = "gorev_id")
+//    @JoinColumn(name = "gorev_id")
     @Enumerated
     private Gorev gorev;
 

@@ -32,10 +32,10 @@ public class Musteri implements UserDetails {
     @ManyToMany
     private List<Randevu> randevu;
     @ManyToOne
-    @JoinColumn(name = "rol_id")
-    private Rol rol;
-    @Column(insertable=false, updatable=false)
-    private Long rol_id;
+    @JoinColumn(name = "token")
+    private Token token;
+//    @Column(insertable=false, updatable=false)
+//    private Long rol_id;
 
 
 

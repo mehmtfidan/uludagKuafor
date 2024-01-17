@@ -79,7 +79,7 @@ public class AdminImpl implements AdminService {
         Admin admin = adminRepository.findById(id).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı kuaför bulunmamaktadır."));
         admin.setKullanici_adi(admin.getKullanici_adi());
         admin.setSifre(admin.getSifre());
-        admin.setRol(admin.getRol());
+//        admin.setRol(admin.getRol());
 
         Admin vtGuncellenmisAdmin = adminRepository.save(admin);
         return AdminMapper.mapToAdminDto(vtGuncellenmisAdmin);

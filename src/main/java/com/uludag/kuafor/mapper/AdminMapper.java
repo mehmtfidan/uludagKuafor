@@ -6,12 +6,12 @@ import com.uludag.kuafor.entity.Admin;
 public class AdminMapper {
     public static AdminDto mapToAdminDto(Admin admin){
         return new AdminDto(
-                admin.getId(),admin.getKullanici_adi(),admin.getSifre(),admin.getRol(),admin.getGorev()
+                admin.getId(),admin.getKullanici_adi(),admin.getSifre(),admin.getToken(),admin.getGorev()
         );
     }
     public static Admin mapToAdmin(AdminDto adminDto){
         return new Admin(
-                adminDto.getId(),adminDto.getKullanici_adi(),adminDto.getSifre(),adminDto.getRol(),adminDto.getGorev()
+                adminDto.getId(),adminDto.getKullanici_adi(),adminDto.getSifre(),adminDto.getToken(),adminDto.getGorev()
         );
     }
 }

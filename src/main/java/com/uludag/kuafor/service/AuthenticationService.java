@@ -24,23 +24,23 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
+        var encryptedPassword = passwordEncoder.encode(request.getSifre());
         var user = Musteri.builder()
-//        var user =  User.builder()
                 .ad(request.getAd())
                 .soyad(request.getSoyad())
                 .kullanici_adi(request.getKullanici_adi())
-                .sifre(passwordEncoder.encode(request.getSifre()))
+                .sifre(encryptedPassword)
                 .gorev(Gorev.musteri)
-//                .gorev(Gorev.admin)
-//                .gorev(Gorev.kuafor)
                 .build();
         musteriRepository.save(user);
-//        userRepository.save(user);
+
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)
                 .build();
     }
+
+
 
 //    public AuthenticationResponse register(RegisterRequest request, String rol) {
 //        var user;
@@ -61,16 +61,16 @@ public class AuthenticationService {
 //                    .sifre(passwordEncoder.encode(request.getSifre()))
 //                    .gorev(Gorev.kuafor)
 //                    .build();
-//            kuaforRepository.save(user);
-//        } else if (rol.equals("kuafor")) {
+//            adminRepository.save(user);
+//        } else if (rol.equals("admin")) {
 ////        user = admin.builder()
 ////                .ad(request.getAd())
 ////                .soyad(request.getSoyad())
 ////                .kullanici_adi(request.getKullanici_adi())
 ////                .sifre(passwordEncoder.encode(request.getSifre()))
-////                .gorev(Gorev.kuafor)
+////                .gorev(Gorev.admin)
 ////                .build();
-////        kuaforRepository.save(user);
+////        adminRepository.save(user);
 //        else {
 //            // Geçersiz rol durumunda hata fırlatın
 //            throw new IllegalArgumentException("Geçersiz rol");
