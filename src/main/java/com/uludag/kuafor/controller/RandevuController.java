@@ -41,13 +41,13 @@ public class RandevuController {
         randevuService.randevuSil(Id);
         return ResponseEntity.ok("Randevu başarıyla silindi.");
     }
-    @PutMapping
-    public ResponseEntity<RandevuDto>randevuGuncelle(@RequestBody RandevuDto guncelRandevu){
-        RandevuDto randevuDto = randevuService.randevuGuncelle(guncelRandevu);
+    @PutMapping("{id}")
+    public ResponseEntity<RandevuDto>randevuGuncelle(@PathVariable Long id,@RequestBody RandevuDto guncelRandevu){
+        RandevuDto randevuDto = randevuService.randevuGuncelle(id,guncelRandevu);
         return ResponseEntity.ok(randevuDto);
     }
-    @PostMapping()
-    public ResponseEntity<RandevuDto> randevuEkle(@RequestBody RandevuDto randevuDto){
+    @PostMapping("{id}")
+    public ResponseEntity<RandevuDto> randevuEkle(Long id,@RequestBody RandevuDto randevuDto){
         RandevuDto eklenenRandevu = randevuService.randevuEkle(randevuDto);
         return new ResponseEntity<>(eklenenRandevu, HttpStatus.CREATED);
     }

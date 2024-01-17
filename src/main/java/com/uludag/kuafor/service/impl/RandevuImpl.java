@@ -47,18 +47,21 @@ public class RandevuImpl implements RandevuService {
         return RandevuMapper.mapRandevuDto(randevu);
     }
 
+
     @Override
-    public RandevuDto randevuGuncelle(RandevuDto guncelRandevu) {
-        Randevu randevu = randevuRepository.findById(guncelRandevu.getId()).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı kuaför bulunmamaktadır."));
-        Musteri musteri = musteriRepository.findById(guncelRandevu.getMusteriId()).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı kuaför bulunmamaktadır."));
+    public RandevuDto randevuGuncelle(Long id, RandevuDto guncelRandevu) {
+        Randevu randevu = randevuRepository.findById(id).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı randevu bulunmamaktadır."));
+        Musteri musteri = musteriRepository.findById(guncelRandevu.getMusteriId()).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı musteri bulunmamaktadır."));
         Kuafor kuafor = kuaforRepository.findById(guncelRandevu.getKuaforId()).orElseThrow(() -> new KaynakBulunamadiException("Bu ID ile kayıtlı kuaför bulunmamaktadır."));
 
-        randevu.setMusteri(musteri);
-        randevu.setKuafor(kuafor);
-        randevu.setMusteriNotu(randevu.getMusteriNotu());
-        randevu.setRandevuSaati(randevu.getRandevuSaati());
-        randevu.setRandevuGunu(randevu.getRandevuGunu());
-        randevu.setRandevuDurumu(Character.toUpperCase(randevu.getRandevuDurumu().charAt(0)) + randevu.getRandevuDurumu().substring(1));
+        randevu.setId(randevu.getId());
+        randevu.getMusteri().setId(randevu.getMusteri().getId());
+        randevu.getKuafor().setId(randevu.getKuafor().getId());
+        randevu.setMusteriNotu(guncelRandevu.getMusteriNotu());
+        randevu.setRandevuSaati(guncelRandevu.getRandevuSaati());
+        randevu.setRandevuGunu(guncelRandevu.getRandevuGunu());
+        randevu.setHizmetler(guncelRandevu.getHizmetler());
+        randevu.setRandevuDurumu(Character.toUpperCase(guncelRandevu.getRandevuDurumu().charAt(0)) + guncelRandevu.getRandevuDurumu().substring(1));
 
         Randevu vtGuncellenmis = randevuRepository.save(randevu);
         return RandevuMapper.mapRandevuDto(vtGuncellenmis);

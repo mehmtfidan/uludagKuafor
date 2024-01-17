@@ -9,9 +9,9 @@ import java.util.List;
 public interface RandevuService {
         List<RandevuDto> randevuGoster(Long randevuId);
         RandevuDto idIleRandevuGoster(Long id);
-        RandevuDto randevuGuncelle(RandevuDto guncelRandevu);
-        void randevuSil(Long id);
+        RandevuDto randevuGuncelle(Long id,RandevuDto guncelRandevu);
 
+        void randevuSil(Long id);
         RandevuDto randevuEkle(RandevuDto randevuDto);
 //        List<LocalTime> calismaSaatleri(Long kuaforId, LocalTime baslamaSaati, LocalTime bitisSaati);
 
