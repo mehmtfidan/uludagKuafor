@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.uludag.kuafor.dto.KuaforDto;
 import com.uludag.kuafor.dto.RandevuDto;
 import com.uludag.kuafor.entity.Randevu;
+import com.uludag.kuafor.repository.RandevuRepository;
 import com.uludag.kuafor.service.KuaforService;
 import com.uludag.kuafor.service.RandevuService;
 import lombok.AllArgsConstructor;
@@ -54,9 +55,8 @@ public class KuaforController {
         RandevuDto durum = kuaforService.setRandevuDurumu(randevuId, rDurum);
         return ResponseEntity.ok(durum);
     }
-
+ RandevuRepository randevuRepository;
     @GetMapping("/durum/{randevuId}")
-//    @JsonIgnoreProperties("{randevuSaati, randevuGunu, musteriId, randevuId, hizmetler, id, musteriNotu}")
     public RandevuDto getRandevuDurumu(@PathVariable("randevuId") Long randevuId) {
         return kuaforService.getRandevuDurumu(randevuId);
     }

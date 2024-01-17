@@ -85,6 +85,7 @@ public class KuaforImpl implements KuaforService {
         Randevu randevu = randevuRepository.findById(randevuId).orElseThrow(() -> new KaynakBulunamadiException("Randevu bulunamadı: " + randevuId));
         RandevuDto randevuDto = new RandevuDto();
         randevuDto.setRandevuDurumu(randevu.getRandevuDurumu());
+        randevuDto.setId(randevu.getId());
         return randevuDto;
     }
 }
