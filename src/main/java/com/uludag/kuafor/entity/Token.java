@@ -19,5 +19,5 @@ public class Token {
     @JsonIgnore
     private Long id;
     @JsonIgnore
-    private String rol;
+    private String token;
 }

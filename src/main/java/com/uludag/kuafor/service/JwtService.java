@@ -17,6 +17,9 @@ import java.util.function.Function;
 
 @Service
 public class JwtService {
+
+
+
     public static final String SECRET_KEY = "aaa1c0c23330315f7b695774d9d96f0e2d19008606a97c954dda79ab04f4d49f";
     public String extractUsername(String token) {
 
@@ -75,4 +78,24 @@ public class JwtService {
         return Keys.hmacShaKeyFor(keyBytes);
 
     }
+//    private final TokenRepository TokenRepository;
+
+    // Constructor ve diğer gerekli enjekte edilen bileşenler
+
+//    public String generateToken(UserDetails userDetails) {
+//        // Token oluşturma işlemleri
+//        String token = "your_generated_token_value";
+//
+//        // Oluşturulan token'ı MySQL veritabanına kaydetme
+//        saveTokenToDatabase(userDetails.getUsername(), token);
+//
+//        return token;
+//    }
+//
+//    private void saveTokenToDatabase(String username, String token) {
+//        Token jwtToken = new Token();
+//        jwtToken.setUsername(username);
+//        jwtToken.setToken(token);
+//        TokenRepository.save(Token);
+//    }
 }

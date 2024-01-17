@@ -14,12 +14,27 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class AuthenticationController {
     private final AuthenticationService authenticationService;
-    @PostMapping("/register")
+
+    @PostMapping("/register-kuafor")
     public ResponseEntity<AuthenticationResponse> register(
             @RequestBody RegisterRequest request
     ) {
         return ResponseEntity.ok(authenticationService.register(request));
     }
+    @PostMapping("/register-musteri")
+    public ResponseEntity<AuthenticationResponse> register1(
+            @RequestBody RegisterRequest request
+    ) {
+        return ResponseEntity.ok(authenticationService.register1(request));
+    }
+
+//    @PostMapping("/register-musteri")
+//    public ResponseEntity<AuthenticationResponse> register2(
+//            @RequestBody RegisterRequest request
+//    ) {
+//        return ResponseEntity.ok(authenticationService.register1(request));
+//    }
+
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(
             @RequestBody AuthenticationRequest request
