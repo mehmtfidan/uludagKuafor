@@ -1,6 +1,7 @@
 package com.uludag.kuafor.service;
 
 import com.uludag.kuafor.dto.RandevuDto;
+import com.uludag.kuafor.entity.Kuafor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,4 @@ public interface RandevuService {
         void randevuSil(Long id);
         RandevuDto randevuEkle(RandevuDto randevuDto);
 //        List<LocalTime> calismaSaatleri(Long kuaforId, LocalTime baslamaSaati, LocalTime bitisSaati);
-
-
 }

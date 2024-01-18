@@ -60,8 +60,6 @@ public class KuaforImpl implements KuaforService {
         }
         return calismaSaatleri;
     }
-
-    RandevuService randevuService;
     RandevuRepository randevuRepository;
 
     @Override

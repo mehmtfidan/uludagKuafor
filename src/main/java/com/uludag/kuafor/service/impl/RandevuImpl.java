@@ -1,6 +1,9 @@
 package com.uludag.kuafor.service.impl;
 
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.uludag.kuafor.entity.Kuafor;
@@ -9,6 +12,7 @@ import com.uludag.kuafor.exception.KaynakBulunamadiException;
 import com.uludag.kuafor.mapper.RandevuMapper;
 import com.uludag.kuafor.repository.KuaforRepository;
 import com.uludag.kuafor.repository.MusteriRepository;
+import com.uludag.kuafor.service.KuaforService;
 import org.springframework.stereotype.Service;
 
 import com.uludag.kuafor.dto.RandevuDto;
@@ -88,17 +92,4 @@ public class RandevuImpl implements RandevuService {
         Randevu eklenenRandevu = randevuRepository.save(randevu);
         return RandevuMapper.mapRandevuDto(eklenenRandevu);
     }
-//    @Override
-//    public List<LocalTime> calismaSaatleri(Long kuaforId, LocalTime baslamaSaati, LocalTime bitisSaati) {
-//
-//        KuaforDto kuafor = kuaforService.bilgiGoruntule(kuaforId);
-//        baslamaSaati = kuafor.getBaslangic_saati();
-//        bitisSaati = kuafor.getBitis_saati();
-//        List<LocalTime> calismaSaatleri = new ArrayList<>();
-//        while (baslamaSaati.isBefore(bitisSaati)) {
-//            calismaSaatleri.add(baslamaSaati);
-//            baslamaSaati = baslamaSaati.plusHours(1);
-//        }
-//        return calismaSaatleri;
-//    }
 }
