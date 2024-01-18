@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RegisterRequest {
 
+    private Long id;
     private String ad;
     private String soyad;
     private String kullanici_adi;

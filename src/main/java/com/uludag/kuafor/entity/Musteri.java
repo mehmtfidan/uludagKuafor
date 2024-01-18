@@ -31,9 +31,9 @@ public class Musteri implements UserDetails {
     private String sifre;
     @ManyToMany
     private List<Randevu> randevu;
-    @ManyToOne
-    @JoinColumn(name = "token")
-    private Token token;
+//    @ManyToOne
+//    @JoinColumn(name = "token")
+//    private Token token;
 //    @Column(insertable=false, updatable=false)
 //    private Long rol_id;
 

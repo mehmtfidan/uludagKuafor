@@ -88,6 +88,7 @@ public class AuthenticationService {
     public AuthenticationResponse register(RegisterRequest request) {
         var encryptedPassword = passwordEncoder.encode(request.getSifre());
         var user = Kuafor.builder()
+                .id(Long.valueOf(request.getId()))
                 .ad(request.getAd())
                 .soyad(request.getSoyad())
                 .kullanici_adi(request.getKullanici_adi())
@@ -104,6 +105,7 @@ public class AuthenticationService {
     public AuthenticationResponse register1(RegisterRequest request) {
         var encryptedPassword = passwordEncoder.encode(request.getSifre());
         var user = Musteri.builder()
+                .id(Long.valueOf(request.getId()))
                 .ad(request.getAd())
                 .soyad(request.getSoyad())
                 .kullanici_adi(request.getKullanici_adi())
