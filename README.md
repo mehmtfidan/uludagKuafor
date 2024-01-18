@@ -28,7 +28,7 @@ Bu sistem, kuaför salonumuzun randevu yönetim süreçlerini dijitalleştirerek
 
 Hoş geldiniz! Kuaför randevu sistemimize giriş yaptığınızda sizi sıcak bir atmosferle karşılamaktan memnuniyet duyarız. 
 
-![Anasayfa](readMe/anasayfa.jpg)
+![Anasayfa](readme/anasayfa.jpg)
 
 ## Navigasyon
 
@@ -51,7 +51,7 @@ Sitemizde bulunan navigasyon (navbar) bağlantıları size ilgili başlıklara y
 
 # Giriş Ekranı
 
-![Giris](readMe/giris.jpg)
+![Giris](readme/giris.jpg)
 
 Giriş ekranını Spring Security ile yazılmıştır. Kuafor, Müşteri ve Admin kullanıcıları için tek bir giriş ekranında erişim sağlanmaktadır.
 
@@ -63,7 +63,7 @@ Giriş ekranını Spring Security ile yazılmıştır. Kuafor, Müşteri ve Admi
 
 ## Kayıt Ol Ekranı
 
-![Kayıt ol](readMe/kayit.jpg)
+![Kayıt ol](readme/kayit.jpg)
 
 - *Kullanıcı Kaydı:*
   Kayıt ol ekranında, kullanıcılar ad, soyad, kullanıcı adı ve şifre bilgilerini belirleyerek sisteme kayıt olabilirler.
@@ -71,7 +71,7 @@ Giriş ekranını Spring Security ile yazılmıştır. Kuafor, Müşteri ve Admi
 - *Müşteri Olarak Hizmet Almaya Başlama:*
   Kayıt olan kullanıcılar, müşteri olarak sisteme dahil olup randevu sistemini kullanmaya başlayabilirler.
 
-![Admin](readMe/admin.jpg)
+![Admin](readme/admin.jpg)
 
 # Admin Sayfası
 
@@ -96,8 +96,8 @@ Admin sayfamız, bir kuaför yönetim sistemi içermektedir. Sistemde bulunan ad
 Bu sayfa, kuaforlerimizin çalışma saatlerini yönetmelerine, randevularını görüntülemelerine ve işlemlerini gerçekleştirmelerine olanak tanır.
 
 
-![Kuafor](readMe/kuaforCalismaSaati.jpg)
-![Kuafor](readMe/kuaforRandevular.jpg)
+![Kuafor](readme/kuaforCalismaSaati.jpg)
+![Kuafor](readme/kuaforRandevular.jpg)
 
 ## Çalışma Saatleri Ayarlama ve Güncelleme
 
@@ -151,8 +151,8 @@ Bu sayfa, müşterilerin randevu taleplerini oluşturmasına ve yönetmelerine o
 
 Bu sayfa, müşterilerin randevu taleplerini oluşturmasına ve yönetmelerine olanak tanır.
 
-![Musteri](readMe/musteriRandevuAl.jpg)
-![Musteri](readMe/musteriRandevuAlForm.jpg)
+![Musteri](readme/musteriRandevuAl.jpg)
+![Musteri](readme/musteriRandevuAlForm.jpg)
 
 ## Randevu Talebi Oluşturma
 
