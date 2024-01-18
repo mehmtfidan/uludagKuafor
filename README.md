@@ -193,7 +193,7 @@ Bu sayfa, müşterilerin randevu taleplerini oluşturmasına ve yönetmelerine o
 
 ## Ekip
 
-- *API:* @nisanurbayrak
-- *Framework:* @mehmtfidan
-- *Frontend:* @semanurgur
-- *Security:* @FarukSahin41
+- *API:* [@nisanurbayrak](https://github.com/nisanurbayrak)
+- *Framework:* [@mehmtfidan](https://github.com/mehmtfidan)
+- *Frontend:* [@semanurgur](https://github.com/semanurr)
+- *Security:* [@FarukSahin41](https://github.com/FarukSahin41)https://github.com/FarukSahin41
