@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunfem Güzellik Merkezi</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/brittany-signature" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/brittany-signature');
+    </style>
+</head>
+
+<body>
+    <!-- navbar yapımı -->
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm p-3 bg-body rounded" style="background-color:#FBF4F9; ">
+        <div class="container">
+            <a class="navbar-brand d-flex" href="#"
+                style="font-family: 'Brittany Signature', sans-serif; color: black;">
+                Sunfem
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link a-color" aria-current="page" href="#">Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hakkimizda">Hakkımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kuaforlerimiz">Kuaförlerimiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hizmetlerimiz">Hizmetlerimiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#iletisim">İletişim</a>
+                    </li>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item me-2 ms-2">
+                            <button class="btn button" data-bs-toggle="modal" data-bs-target="#logInModal"
+                                data-bs-whatever="@mdo" style="border-color: #92b8e0;">Giriş Yap</button>
+                        </li>
+                        <li class="nav-item ms-2">
+                            <button class="btn button" data-bs-toggle="modal" data-bs-target="#signInModal"
+                                data-bs-whatever="@mdo" style="background-color: #c8d9eb;">Kayıt Ol</button>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- slider yapımı -->
+    <div id="anasayfa" class="container-fluid">
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../IMG/slider1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                       <a href="musterisayfa1.html"> <button type="button" class="btn btn-dark" onclick="openNewPage()">Randevu Al</button></a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../IMG/slider2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../IMG/slider3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+    </div>
+    <!-- Giriş yap modal yapımı -->
+    <div class="modal fade" id="logInModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Giriş Yap</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="usernameInput" class="col-form-label">Kullanıcı Adı:</label>
+                            <input type="text" class="form-control" id="usernameInput" name="usernameInput"
+                                placeholder="Kullanıcı Adı" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="passwordInput" class="col-form-label">Şifre:</label>
+                            <input type="password" class="form-control" id="passwordInput" name="passwordInput"
+                                placeholder="Şifre" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" id="loginButton">Giriş</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- kayıt ol modal yapımı -->
+    <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Kayıt Ol</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Ad:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Ad" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="surname" class="col-form-label">Soyad:</label>
+                            <input type="text" class="form-control" id="surname" placeholder="Soyad" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="col-form-label">Kullanıcı Adı:</label>
+                            <input type="text" class="form-control" id="username" placeholder="Kullanıcı Adı" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="col-form-label">Şifre:</label>
+                            <input type="password" class="form-control" id="password" placeholder="Şifre" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="kayitButton">Kayıt Ol</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="hakkimizda" class="hakkimizda">
+        <div>
+            <h3>HAKKIMIZDA</h3>
+        </div>
+        <div>
+            <p class="lead" style="color: black;">"SUNFEM: Kuaforlerin ve Müşterilerin Buluşma Noktası"<br>
+
+                SUNFEM, kuaforlerin yeteneklerini sergileyebileceği, işlerini yönetebileceği ve müşterilerine özel
+                deneyimler sunabileceği bir platformdur. Kuaforluk mesleğine olan derin tutkumuz ve müşteri
+                memnuniyetine odaklı yaklaşımımızla, kuaforlerin ve müşterilerin ihtiyaçlarını bir araya getiriyoruz.
+                <br>
+
+                SUNFEM'in Misyonu: Kuaforluk mesleğini desteklemek ve kuaforlerin işlerini daha kolay yönetmelerine
+                yardımcı olmak; aynı zamanda müşterilerimize en iyi deneyimi sunmak. <br>
+
+                SUNFEM'in Vizyonu: Her kuaforün kendine özgü tarzını sergileyebileceği, randevularını düzenleyebileceği
+                ve müşterilerine kişisel bir hizmet sunabileceği bir platform oluşturmak.
+            </p>
+        </div>
+    </div>
+
+    <div class="conatiner" id="kuaforlerimiz">
+        <div class="team-grid">
+            <div class="container">
+                <div class="intro">
+                    <h3 class="text-center mt-5">KUAFÖRLERİMİZ</h3>
+                </div>
+                <div class="row people d-flex justify-content-center">
+                    <div class="col-md-3 col-lg-3 item">
+                        <div class="box img-fluid" style="background-image:url(../IMG/kuafor2.jpg)">
+                            <div class="cover">
+                                <h3 class="name">Melisa Döngel</h3>
+                                <p class="title">Kuaför</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-lg-3 item">
+                        <div class="box img-fluid" style="background-image:url(../IMG/kuafor4.jpg)">
+                            <div class="cover">
+                                <h3 class="name">Büşra Altınoluk</h3>
+                                <p class="title">Nail Art Uzmanı</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-lg-3 item">
+                        <div class="box img-fluid" style="background-image:url(../IMG/kuafor1.jpg)">
+                            <div class="cover">
+                                <h3 class="name">Emine Sağlam</h3>
+                                <p class="title">Cilt Bakım Uzmanı</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-lg-3 item">
+                        <div class="box img-fluid" style="background-image:url(../IMG/kuafor3.jpg)">
+                            <div class="cover">
+                                <h3 class="name">Sena Mermer</h3>
+                                <p class="title">Kaş Bıyık</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="hizmetlerimiz" class="container">
+        <div class="intro">
+            <h3 class="text-center  mb-5">HİZMETLERİMİZ</h3>
+        </div>
+        <div class="container ">
+            <div class="row">
+                <div class="col pt-auto">
+                    <ul class="list-group">
+                        <li class="list-group-item">Saç Kesimi - 200TL</li>
+                        <li class="list-group-item">Saç Boyama - 500TL</li>
+                        <li class="list-group-item">Düz Fön - 200TL</li>
+                        <li class="list-group-item">Cila - 600TL</li>
+                        <li class="list-group-item">Kırık Fön - 250TL</li>
+                        <li class="list-group-item">Ombre - 250TL</li>
+                    </ul>
+                </div>
+                <div class="col pt-auto">
+                    <ul class="list-group">
+                        <li class="list-group-item">Maşa - 300TL</li>
+                        <li class="list-group-item">Röfle - 250TL</li>
+                        <li class="list-group-item">Manikür - 200TL</li>
+                        <li class="list-group-item">Pedikür - 200TL</li>
+                        <li class="list-group-item">Protez Tırnak - 550TL</li>
+                        <li class="list-group-item">Kalıcı Oje - 350TL</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="iletisim">
+        <div class="row">
+            <div class="col">
+                <img src="../IMG/iletisim.jpg" alt="" class="img-fluid" style="height: 520px; width: auto;">
+            </div>
+            <div class="col mx-auto" style="color: black  !important;">
+                <h6>İletişim</h6>
+                <div class="mt-3"><i class="fa-solid fa-phone"></i> Telefon: 0224 512 7898</div>
+                <div class="mt-3 mb-4"><i class="fa-solid fa-envelope"></i> Mail: sunfembeauty@gmail.com</div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12211.808425758887!2d29.4915273!3d40.0764804!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cbcbe1cc9f72f7%3A0x2b41adff399ce11e!2zVWx1ZGHEnyDDnG5pdmVyc2l0ZXNpIMSwbmVnw7ZsIMSwxZ9sZXRtZSBGYWvDvGx0ZXNp!5e0!3m2!1str!2str!4v1705413979865!5m2!1str!2str"
+                    width="500" height="350" style="border: 1px;;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="fluid">
+        <footer class="py-3 my-4">
+            <p class="text-center text-muted">&copy; 2023 SUNFEM, Inc</p>
+        </footer>
+    </div>
+
+    <script src="../JavaScript/script2.js"></script>
+    <script src="../JavaScript/script3.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

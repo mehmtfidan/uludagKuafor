@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>website</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- navbar yapımı -->
+    <nav class="navbar navbar-expand-md sticky-top" style="background-color:white; ">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../IMG/logo (1).png" alt="" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link a-color" aria-current="page" href="#">Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hakkimizda">Hakkımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kuaforlerimiz">Kuaförlerimiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hizmetlerimiz">Hizmetlerimiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#iletisim">İletişim</a>
+                    </li>
+                    <!-- <ul class="navbar-nav ml-auto">
+                        <li class="nav-item me-2 ms-2">
+                            <button class="btn button" data-bs-toggle="modal" data-bs-target="#logInModal"
+                                data-bs-whatever="@mdo" style="background-color: #c8d9eb;">Giriş Yap</button>
+                        </li>
+                        <li class="nav-item ms-2">
+                            <button class="btn button" data-bs-toggle="modal" data-bs-target="#signInModal"
+                                data-bs-whatever="@mdo" style="border-color: #92b8e0;">Kayıt Ol</button>
+                        </li>
+                    </ul> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- slider yapımı -->
+    <div id="anasayfa" class="container-fluid">
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../IMG/1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                        <button type="button" class="btn btn-dark" onclick="openNewPage()">Randevu Al</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../IMG/2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../IMG/3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+    </div>
+    <!-- giriş yap modal yapımı -->
+    <div class="modal fade" id="logInModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Giriş Yap</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Kullanıcı Adı:</label>
+                            <input type="text" class="form-control" id="username" placeholder="Kullanıcı Adı">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Şifre:</label>
+                            <input type="password" class="form-control" id="password" placeholder="Şifre">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Giriş</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- kayıt ol modal yapımı -->
+    <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Kayıt Ol</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Ad:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Ad">
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Soyad:</label>
+                            <input type="text" class="form-control" id="surname" placeholder="Soyad">
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Kullanıcı Adı:</label>
+                            <input type="text" class="form-control" id="username" placeholder="Kullanıcı Adı">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Şifre:</label>
+                            <input type="password" class="form-control" id="password" placeholder="Şifre">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Kayıt Ol</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="hakkimizda" class="hakkimizda">
+        <div>
+            <h3>Hakkımızda</h3>
+        </div>
+        <div>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt placeat recusandae fugit
+                sapiente
+                facere
+                assumenda voluptates, ullam, ex quasi ab consectetur sequi nemo! Qui, in. Placeat veritatis accusantium
+                odio
+                id officia fugit odit aut sapiente, corporis deserunt ea, libero quae distinctio quam doloribus possimus
+                vero voluptatem nesciunt ipsam, pariatur error. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Amet similique modi consequuntur molestias </p>
+        </div>
+    </div>
+
+    <div id="kuaforlerimiz">  
+            <div class="conatiner">
+                
+            </div>           
+    </div>
+
+    <div id="hizmetlerimiz" class="container">
+        <h4>Hizmetlerimiz</h4>
+
+        <div class="container ">
+            <div class="row ">
+                <div class="col">
+                    <img src="../IMG/5.jpg" class="rounded img-fluid " alt="..." style="width: 300px; height: auto;">
+                </div>
+                <div class="col pt-auto">
+                    <p>Saç Kesimi....................200Tl</p>
+                    <p>Maşa.....................500Tl</p>
+                    <p>Düz Fön.........................200Tl</p>
+                    <p>Kırık Fön.....................550Tl</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row ">
+                <div class="col">
+                    <p>Cila....................200Tl</p>
+                    <p>Ombre.....................500Tl</p>
+                    <p>Röfle.........................200Tl</p>
+                    <p>Saç Boyama.....................550Tl</p>
+                </div>
+                <div class="col pt-auto">
+                    <img src="../IMG/6.jpg" class="rounded img-fluid" alt="..." style="width: 300px; height: auto;">
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container ">
+            <div class="row ">
+                <div class="col">
+                    <img src="../IMG/7.jpg" class="rounded img-fluid" alt="..." style="width: 300px; height: auto;">
+                </div>
+                <div class="col pt-auto">
+                    <p>Manikür....................200Tl</p>
+                    <p>Pedikür.....................500Tl</p>
+                    <p>Protez Tırnak .........................200Tl</p>
+                    <p>Kalıcı Oje.....................550Tl</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="iletisim">
+        <div>
+            <h6>İletişim</h6>
+            <p>Telefon:</p>
+            <p>0224 512 7898</p>
+            <p>Mail:</p>
+            <p>hairbeauty@gmail.com</p>
+        </div>
+
+    </div>
+    <!-- footer -->
+    <div class="container">
+        <footer class="py-3 my-4 ">
+            <!-- <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="#anasayfa" class="nav-link px-2 text-muted">Anasayfa</a></li>
+                <li class="nav-item"><a href="#hakkimizda" class="nav-link px-2 text-muted">Hakkımızda</a></li>
+                <li class="nav-item"><a href="#hizmetlerimiz" class="nav-link px-2 text-muted">Hizmetlerimiz</a></li>
+                <li class="nav-item"><a href="#iletisim" class="nav-link px-2 text-muted">İletişim</a></li>
+            </ul> -->
+            <p class="text-center text-muted">&copy; 2023 SUNFEM, Inc</p>
+        </footer>
+    </div>
+
+    <script src="../JavaScript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
