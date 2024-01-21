@@ -5,7 +5,7 @@ $(document).ready(function () {
 
         if (confirm("Çalışma saatlerini güncellemek istediğinizden emin misiniz?")) {
             $.ajax({
-                url: 'http://localhost:8080/api/kuafor/5',
+                url: 'http://localhost:8080/api/kuafor/1',
                 method: 'PUT',
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -26,7 +26,7 @@ $(document).ready(function () {
         $('#saatlerTablosuBody').empty(); // Tabloyu temizle
 
         $.ajax({
-            url: 'http://localhost:8080/api/kuafor/5',
+            url: 'http://localhost:8080/api/kuafor/1',
             method: 'GET',
             success: function (response) {
                 var newRow = `
@@ -47,7 +47,7 @@ $(document).ready(function () {
         $('#randevuTablosu tbody').empty();
 
         $.ajax({
-            url: 'http://localhost:8080/api/kuafor/randevular/5',
+            url: 'http://localhost:8080/api/kuafor/randevular/1',
             method: 'GET',
             success: function (randevular) {
                 console.log('Randevular:', randevular);
@@ -84,7 +84,7 @@ $(document).ready(function () {
     // Çalışma saatlerini dropdown listesine yükleme fonksiyonu
     function calismaSaatleriniYukle() {
         $.ajax({
-            url: 'http://localhost:8080/api/kuafor/mesai/5',
+            url: 'http://localhost:8080/api/kuafor/mesai/1',
             method: 'GET',
             success: function(response) {
                 // Başlangıç ve bitiş saatlerini alarak dropdown listesini doldur

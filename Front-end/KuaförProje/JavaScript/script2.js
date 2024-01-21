@@ -25,7 +25,7 @@ $('#loginButton').on('click', function(event) {
                 if (isMusteri) {
                     alert('Müşteri girişi başarılı!');
                     $('#logInModal').modal('hide'); // Formun kapatılması
-                    // Müşteriye özel bir işlem yapabilirsiniz veya şu anki sayfada kalabilirler.
+                    window.open('musterisayfa3.html', '_blank'); // Yeni sekmede kuaforsayfa.html açma
                 } else {
                     // Kuafor girişi kontrolü
                     $.ajax({

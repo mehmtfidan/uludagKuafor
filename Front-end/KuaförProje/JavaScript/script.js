@@ -2,7 +2,7 @@ $(document).ready(function () {
     // Sayfa yüklendiğinde çalışacak kodlar
     // Ad ve soyadı müşteri API'sinden getir
     $.ajax({
-        url: "http://localhost:8080/api/musteri/1", // Müşteri API endpoint'i
+        url: "http://localhost:8080/api/musteri/24", // Müşteri API endpoint'i
         method: "GET",
         success: function (data) {
             // API'den gelen veriyi ad ve soyad alanlarına yerleştir
